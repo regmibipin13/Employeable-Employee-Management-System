@@ -190,7 +190,7 @@ class PermissionsTableSeeder extends Seeder
             ],
             [
                 'id'         => '31',
-                'title'      => 'employee_show',
+                'title'      => 'employee_delete',
                 'created_at' => '2019-09-28 14:22:15',
                 'updated_at' => '2019-09-28 14:22:15',
             ],

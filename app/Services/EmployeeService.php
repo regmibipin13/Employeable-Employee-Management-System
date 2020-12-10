@@ -29,7 +29,9 @@ class EmployeeService {
 		return $user;
 	}
 	public function updateUserAccount(Request $request, Employee $employee) {
+		// dd($employee);
 		$user = User::find($employee->user_id);
+		// dd($user);
 		$user->update([
 				'name'  => $request->name,
 				'email' => $request->email,

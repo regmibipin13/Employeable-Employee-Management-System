@@ -73,7 +73,7 @@ class EmployeeController extends Controller {
 		abort_if(Gate::denies('employee_edit'), Response::HTTP_FORBIDDEN, '403 FORBIDDEN');
 		$designations = Designation::all();
 		$departments  = Department::all();
-		dd($employee->started_from);
+		// dd($employee->started_from);	
 		return view('admin.employees.edit', compact('designations', 'departments', 'employee'));
 	}
 
@@ -89,7 +89,8 @@ class EmployeeController extends Controller {
 
 		$employeeService->updateUserAccount($request, $employee);
 
-		$request->merge(['user_id', $employee->user_id]);
+		$request->merge(['user_id'=>$employee->user_id]);
+		// dd($request->all());
 		$employee->update($request->all());
 
 		return redirect()->to('/admin/employees');

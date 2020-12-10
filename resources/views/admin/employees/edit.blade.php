@@ -6,6 +6,7 @@
 <div class="mT-30">
     <form action="{{ route("admin.employees.update",$employee->id) }}" method="POST" enctype="multipart/form-data">
         @csrf
+        @method('patch')
         <div class="row">
             <div class="col-md-6 form-group {{ $errors->has('name') ? 'has-error' : '' }}">
                 <label for="name">{{ trans('cruds.employee.fields.name') }}*</label>
