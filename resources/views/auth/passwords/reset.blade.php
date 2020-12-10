@@ -8,6 +8,16 @@
         {{ \Session::get('message') }}
     </p>
 @endif
+
+@if($errors->any()) {
+    <div class="alert alert-danger">
+        <ul class="pr-1 pl-1 pb-1 pt-1 mb-1">
+            @foreach($errors->all() as $error)
+            <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
 <form method="POST" action="{{ route('password.request') }}">
     {{ csrf_field() }}
     <h1>

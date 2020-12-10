@@ -73,6 +73,7 @@ class EmployeeController extends Controller {
 		abort_if(Gate::denies('employee_edit'), Response::HTTP_FORBIDDEN, '403 FORBIDDEN');
 		$designations = Designation::all();
 		$departments  = Department::all();
+		dd($employee->started_from);
 		return view('admin.employees.edit', compact('designations', 'departments', 'employee'));
 	}
 

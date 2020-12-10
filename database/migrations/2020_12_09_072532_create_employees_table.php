@@ -31,7 +31,7 @@ class CreateEmployeesTable extends Migration
             $table->enum('salary_type',['daily','weekly','monthly','yearly']);
             $table->bigInteger('salary');
 
-            $table->dateTime('started_from');
+            $table->date('started_from');
             $table->timestamps();
         });
     }

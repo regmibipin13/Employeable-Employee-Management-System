@@ -1,10 +1,10 @@
 @extends('layouts.admin')
 @section('content')
 <h6 class="c-grey-900">
-    {{ trans('global.create') }} {{ trans('cruds.employee.title_singular') }}
+    {{ trans('global.edit') }} {{ trans('cruds.employee.title_singular') }}
 </h6>
 <div class="mT-30">
-    <form action="{{ route("admin.employees.store") }}" method="POST" enctype="multipart/form-data">
+    <form action="{{ route("admin.employees.update",$employee->id) }}" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="row">
             <div class="col-md-6 form-group {{ $errors->has('name') ? 'has-error' : '' }}">
@@ -46,8 +46,9 @@
             <div class="col-md-4 form-group {{ $errors->has('designation_id') ? 'has-error' : '' }}">
                 <label for="designation_id">{{ trans('cruds.employee.fields.designation') }}*</label>
                 <select id="designation_id" name="designation_id" class="form-control" required>
+                    <option selected>Select a Designation</option>
                     @foreach($designations as $designation)
-                    <option value="{{ $designation->id }}">{{ $designation->name }}</option>
+                    <option value="{{ $designation->id }}" @if($employee->designation_id == $designation->id) selected @endif>{{ $designation->name }}</option>
                     @endforeach
                 </select>
                 @if($errors->has('designation_id'))
@@ -59,8 +60,9 @@
             <div class="col-md-4 form-group {{ $errors->has('department_id') ? 'has-error' : '' }}">
                 <label for="department_id">{{ trans('cruds.employee.fields.department') }}*</label>
                 <select id="department_id" name="department_id" class="form-control" required>
+                    <option selected>Select a Department</option>
                     @foreach($departments as $department)
-                    <option value="{{ $department->id }}">{{ $department->name }}</option>
+                    <option value="{{ $department->id }}" @if($employee->department_id == $department->id) selected @endif>{{ $department->name }}</option>
                     @endforeach
                 </select>
                 @if($errors->has('department_id'))
@@ -82,10 +84,10 @@
                 <label for="salary_type">{{ trans('cruds.employee.fields.salary_type') }}*</label>
                 <select id="salary_type" name="salary_type" class="form-control" required>
                     <option selected>Select a Salary Type</option>
-                    <option value="daily">Daily</option>
-                    <option value="weekly">Weekly</option>
-                    <option value="monthly">Monthly</option>
-                    <option value="yearly">Yearly</option>
+                    <option value="daily" @if($employee->salary_type == 'daily') selected @endif>Daily</option>
+                    <option value="weekly"@if($employee->salary_type == 'weekly') selected @endif>Weekly</option>
+                    <option value="monthly"@if($employee->salary_type == 'monthly') selected @endif>Monthly</option>
+                    <option value="yearly"@if($employee->salary_type == 'yearly') selected @endif>Yearly</option>
                    
                 </select>
                 @if($errors->has('salary_type'))
