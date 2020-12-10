@@ -3,9 +3,12 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Spatie\MediaLibrary\HasMedia\HasMedia;
+use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
 
-class Employee extends Model
+class Employee extends Model implements HasMedia
 {
+    use HasMediaTrait;
     protected $guarded = [];
 
     public function user()

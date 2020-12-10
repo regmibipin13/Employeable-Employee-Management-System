@@ -97,6 +97,18 @@
                     </ul>
                 </li>
             @endcan
+
+            @can('employee_access')
+            <li class="nav-item">
+                <a href="{{ route('admin.employees.index') }}" class="nav-link">
+                    <span class="icon-holder">
+                        <i class="nav-icon fas fa-fw fa-users"></i>
+                    </span>
+                    <span class="title">Employees</span>
+                </a>
+            </li>
+            @endcan
+            
             <li class="nav-item">
                 <a href="#" class="nav-link" onclick="event.preventDefault(); document.getElementById('logoutform').submit();">
                     <span class="icon-holder">

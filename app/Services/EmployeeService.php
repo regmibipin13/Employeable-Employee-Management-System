@@ -3,16 +3,19 @@
 namespace App\Services;
 
 use App\Employee;
+use App\Events\Employees\NewEmployeeRegistrationEvent;
 use App\Role;
 use App\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 
 class EmployeeService {
 	private $role;
 	public function __construct() {
-		$this->role = Role::where('name', 'Employee')->first();
+		$this->role = Role::where('title', 'Employee')->first();
 	}
 	public function createUserAccount(Request $request) {
 		$password = Str::random(8);

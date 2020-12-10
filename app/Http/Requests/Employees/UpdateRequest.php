@@ -27,14 +27,13 @@ class UpdateRequest extends FormRequest
             'name' => 'required',
             'email' => 'required',
             'phone' => 'required',
-            'user_id' => 'required',
             'address' => 'required',
             'designation_id' => 'required',
             'department_id' => 'required',
             'academic_qualification' => 'nullable',
             'bio' => 'nullable',
             'salary_type' => 'required',
-            'salary' => 'required',
+            'salary' => 'required | numeric',
             'started_from' => 'required | before:today',
         ];
     }

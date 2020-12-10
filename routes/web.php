@@ -3,7 +3,8 @@
 Route::redirect('/', '/login');
 Route::redirect('/home', '/admin');
 Auth::routes(['register' => false]);
-Route::get('/employees/password/reset/{token}', 'Auth\ResetPasswordController@resetEmployeePassword');
+Route::get('/employees/password/reset/{token}','Auth\ResetPasswordController@showEmployeeResetForm');
+Route::post('/employees/password/reset', 'Auth\ResetPasswordController@resetEmployeePassword')->name('employees.resetPassword');
 Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'middleware' => ['auth']], function () {
 		Route::get('/', 'HomeController@index')->name('home');
 		// Permissions
@@ -25,5 +26,9 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
 		// Departments
 		Route::delete('departments/destroy', 'DepartmentsController@massDestroy')->name('departments.massDestroy');
 		Route::resource('/departments', 'DepartmentsController');
+
+		// Employees
+		Route::delete('employees/destroy','EmployeeController@massDestroy')->name('employees.massDestroy');
+		Route::resource('/employees','EmployeeController');
 
 	});

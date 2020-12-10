@@ -68,6 +68,11 @@
                         {{ $employee->phone }}
                     </td>
                     <td>
+                        {{ $employee->phone }}
+                    </td>
+                    <td>{{ $employee->salary_type }}</td>
+                    <td>{{ $employee->salary }}</td>
+                    <td>
                         @can('employee_show')
                             <a class="btn btn-xs btn-primary" href="{{ route('admin.employees.show', $employee->id) }}">
                                 {{ trans('global.view') }}

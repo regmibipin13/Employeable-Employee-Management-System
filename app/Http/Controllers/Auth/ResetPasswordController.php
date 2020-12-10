@@ -3,7 +3,13 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\User;
+use Carbon\Carbon;
 use Illuminate\Foundation\Auth\ResetsPasswords;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Password;
 
 class ResetPasswordController extends Controller {
 	/*
@@ -64,6 +70,14 @@ class ResetPasswordController extends Controller {
 		return $response == Password::PASSWORD_RESET
 		?$this->sendResetResponse($request, $response)
 		:$this->sendResetFailedResponse($request, $response);
+	}
+
+	public function showEmployeeResetForm(Request $request, $token)
+	{
+		return view('auth.passwords.employee_reset',[
+			'email' => $request->email,
+			'token' => $token,
+		]);
 	}
 
 }

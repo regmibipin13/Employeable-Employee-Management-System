@@ -17,7 +17,8 @@ return [
             'salary_type' => 'Salary / Wage Type',
             'salary' => 'Salary per type',
             'academic_qualification' => 'Academic Qualifications',
-            'bio' => 'Bio'
+            'bio' => 'Bio',
+            'started_from' => 'Started Working From'
         ]
     ],
     'designation' => [

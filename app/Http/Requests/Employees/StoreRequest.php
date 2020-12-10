@@ -27,14 +27,13 @@ class StoreRequest extends FormRequest
             'name' => 'required',
             'email' => 'required | unique:employees',
             'phone' => 'required | unique:employees',
-            'user_id' => 'required | unique:employees',
             'address' => 'required',
             'designation_id' => 'required',
             'department_id' => 'required',
             'academic_qualification' => 'nullable',
             'bio' => 'nullable',
             'salary_type' => 'required',
-            'salary' => 'required',
+            'salary' => 'required | numeric',
             'started_from' => 'required | before:today',
         ];
     }

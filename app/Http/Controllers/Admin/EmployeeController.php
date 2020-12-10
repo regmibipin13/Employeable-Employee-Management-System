@@ -1,15 +1,16 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
 use App\Department;
 use App\Designation;
 use App\Employee;
+use App\Http\Controllers\Controller;
 use App\Http\Requests\Employees\StoreRequest;
 use App\Http\Requests\Employees\UpdateRequest;
 use App\Services\EmployeeService;
 use App\User;
-
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
 use Symfony\Component\HttpFoundation\Response;
 
