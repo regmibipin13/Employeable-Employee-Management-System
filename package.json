@@ -20,6 +20,10 @@
         "vue-template-compiler": "^2.6.12"
     },
     "dependencies": {
-        "vue": "^2.6.12"
+        "filepond": "^4.24.0",
+        "filepond-plugin-file-validate-type": "^1.2.5",
+        "filepond-plugin-image-preview": "^4.6.4",
+        "vue": "^2.6.12",
+        "vue-filepond": "^6.0.3"
     }
 }

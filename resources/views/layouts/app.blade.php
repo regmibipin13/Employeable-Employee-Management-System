@@ -41,11 +41,15 @@
             </div>
         </div>
         <div class="col-12 col-md-4 peer pX-40 pY-80 h-100 bgc-white scrollable pos-r ps">
+            <div id="app">
             @yield("content")
+            </div>
         </div>
     </div>
     <script src="{{ asset('js/vendor.js') }}"></script>
     <script src="{{ asset('js/bundle.js') }}"></script>
+    <script src="{{ asset('js/app.js') }}"></script>
+    
     @yield('scripts')
 </body>
 

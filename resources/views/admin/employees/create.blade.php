@@ -122,6 +122,17 @@
                 @endif
             </div>
             <div class="col-md-12">
+                <label>Profile Picture</label>
+                <file-uploader
+                :name="'photo'"
+                :label="'Drop or upload the image here'"
+                :multiple="false"
+                :action="''"
+                    >
+
+                </file-uploader>
+            </div>
+            <div class="col-md-12">
                 <input class="btn btn-danger" type="submit" value="{{ trans('global.save') }}">
             </div>
         </div>
