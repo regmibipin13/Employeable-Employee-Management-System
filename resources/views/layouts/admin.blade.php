@@ -82,7 +82,9 @@
                                         </ul>
                                     </div>
                                 @endif
-                                @yield('content')
+                                <div id="app">
+                                  @yield('content')
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -207,6 +209,7 @@
 });
 
     </script>
+    <!-- <script src="{{ asset('js/app.js') }}"></script> -->
     @yield('scripts')
 </body>
 </html>

@@ -36,12 +36,6 @@
                     {{ trans('cruds.employee.fields.phone') }}
                 </th>
                 <th>
-                    {{ trans('cruds.employee.fields.salary_type') }}
-                </th>
-                <th>
-                    {{ trans('cruds.employee.fields.salary') }}
-                </th>
-                <th>
                     &nbsp;
                 </th>
             </tr>
@@ -56,7 +50,7 @@
                         {{ $employee->id ?? '' }}
                     </td>
                     <td>
-                        <img src="{{ $employee->getFirstMediaUrl() }}" alt="{{ $employee->name }}" width="150" height="150">
+                        <img src="{{ $employee->getFirstMediaUrl() ?? '' }}" alt="{{ $employee->name }}" width="150" height="150">
                     </td>
                     <td>
                         {{ $employee->name ?? '' }}
@@ -65,20 +59,9 @@
                         {{ $employee->email ?? '' }}
                     </td>
                     <td>
-                        {{ $employee->phone }}
+                        {{ $employee->phone ?? '' }}
                     </td>
                     <td>
-                        {{ $employee->phone }}
-                    </td>
-                    <td>{{ $employee->salary_type }}</td>
-                    <td>{{ $employee->salary }}</td>
-                    <td>
-                        @can('employee_show')
-                            <a class="btn btn-xs btn-primary" href="{{ route('admin.employees.show', $employee->id) }}">
-                                {{ trans('global.view') }}
-                            </a>
-                        @endcan
-
                         @can('employee_edit')
                             <a class="btn btn-xs btn-info" href="{{ route('admin.employees.edit', $employee->id) }}">
                                 {{ trans('global.edit') }}
