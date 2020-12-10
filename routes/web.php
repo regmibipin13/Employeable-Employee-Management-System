@@ -31,4 +31,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
 		Route::delete('employees/destroy','EmployeeController@massDestroy')->name('employees.massDestroy');
 		Route::resource('/employees','EmployeeController');
 
+		// For File Uploads
+		Route::post('/image','ImageUploaderController@uploadImage')->name('admin.imageUploader');
+
 	});
