@@ -121,16 +121,9 @@
                     </em>
                 @endif
             </div>
-            <div class="col-md-12">
-                <label>Profile Picture</label>
-                <file-uploader
-                :name="'photo'"
-                :label="'Drop or upload the image here'"
-                :multiple="false"
-                :action="''"
-                    >
-
-                </file-uploader>
+            <div class="col-md-12 mb-2">
+                <label for="photo">Photo</label>
+                <input type="file" name="photo" class="form-control" id="photo" value="{{ old('photo') }}">
             </div>
             <div class="col-md-12">
                 <input class="btn btn-danger" type="submit" value="{{ trans('global.save') }}">

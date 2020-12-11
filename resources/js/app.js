@@ -5,7 +5,7 @@ window.Vue = require('vue');
 
 
 // Registration of admin components
-Vue.component('file-uploader', require('./components/FileUploader').default);
+// Vue.component('file-uploader', require('./components/FileUploader').default);
 
 
 const app = new Vue({
