@@ -124,6 +124,11 @@
                     </em>
                 @endif
             </div>
+            <div class="col-md-12 mb-2">
+                <label for="photo">Photo</label>
+                <img src="{{ $employee->getFirstMediaUrl('employee_photo') }}" alt="{{ $employee->name }}" width="200" height="200"/>
+                <input type="file" name="photo" class="form-control" id="photo" value="{{ old('photo') }}">
+            </div>
             <div class="col-md-12">
                 <input class="btn btn-danger" type="submit" value="{{ trans('global.save') }}">
             </div>

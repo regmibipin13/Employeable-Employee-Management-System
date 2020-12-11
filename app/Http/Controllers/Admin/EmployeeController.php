@@ -5,9 +5,11 @@ namespace App\Http\Controllers\Admin;
 use App\Department;
 use App\Designation;
 use App\Employee;
+use App\Events\Employees\InstantMailEvent;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Employees\StoreRequest;
 use App\Http\Requests\Employees\UpdateRequest;
+use App\Notifications\Employees\AccountStatusChange;
 use App\Services\EmployeeService;
 use App\User;
 use Illuminate\Http\Request;
@@ -48,7 +50,10 @@ class EmployeeController extends Controller {
 		$employeeService = new EmployeeService;
 		$user            = $employeeService->createUserAccount($request);
 		$request->merge(['user_id' => $user->id]);
-		$employee = Employee::create($request->all());
+		$employee = Employee::create($request->except(['photo']));
+		if($request->photo !== null) {
+			$employee->addMedia($request->photo)->toMediaCollection('employee_photo');
+		}
 		return redirect()->to('/admin/employees');
 	}
 
@@ -60,6 +65,7 @@ class EmployeeController extends Controller {
 	 */
 	public function show(Employee $employee) {
 		abort_if(Gate::denies('employee_show'), Response::HTTP_FORBIDDEN, '403 FORBIDDEN');
+		$employee->load(['user','designation','department']);
 		return view('admin.employees.show', compact('employee'));
 	}
 
@@ -91,7 +97,11 @@ class EmployeeController extends Controller {
 
 		$request->merge(['user_id'=>$employee->user_id]);
 		// dd($request->all());
-		$employee->update($request->all());
+		$employee->update($request->except(['photo']));
+		$employee->clearMediaCollection('employee_photo');
+		if($request->photo !== null) {
+			$employee->addMedia($request->photo)->toMediaCollection('employee_photo');
+		}
 
 		return redirect()->to('/admin/employees');
 	}
@@ -105,13 +115,38 @@ class EmployeeController extends Controller {
 	public function destroy(Employee $employee) {
 		abort_if(Gate::denies('employee_delete'), Response::HTTP_FORBIDDEN, '403 FORBIDDEN');
 		User::find($employee->user_id)->delete();
+		$employee->clearMediaCollection();
 		$employee->delete();
 		return redirect()->back();
 	}
 
 	public function massDestroy(Request $request, Employee $employee) {
 		Employee::whereIn('id', request('ids'))->delete();
-
 		return response(null, Response::HTTP_NO_CONTENT);
 	}
+
+	public function instantMail(Request $request, Employee $employee)
+    {
+        $request->merge(['name'=>$employee->name, 'email'=> $employee->email]);
+        event(new InstantMailEvent($request->all()));
+        return redirect()->back()->with('success','Mail has been sent to employee successfully');
+    }
+
+    public function changeStatus($id)
+    {
+        $employee = Employee::find($id);
+        $status = $employee->user->is_enabled;
+        $employee->user->update([
+            'is_enabled'=>!$status,
+        ]);
+        if(!$status) {
+            $type = 'success';
+            $message = 'Employee Account Enabled Successfully';
+        } else {
+            $type = 'danger';
+            $message = 'Employee Account Disabled Successfully';
+        }
+        $employee->user->notify(new AccountStatusChange($employee->user));
+        return redirect()->back()->with($type,$message);
+    }
 }

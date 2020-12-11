@@ -2,8 +2,10 @@
 
 namespace App\Providers;
 
+use App\Events\Employees\InstantMailEvent;
 use App\Events\Employees\NewEmployeeRegistrationEvent;
 use App\Listeners\Employees\SendEmployeeAccountDetails;
+use App\Listeners\Employees\InstantMailListener;
 use Illuminate\Support\Facades\Event;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
@@ -22,6 +24,9 @@ class EventServiceProvider extends ServiceProvider
         ],
         NewEmployeeRegistrationEvent::class => [
             SendEmployeeAccountDetails::class,
+        ],
+        InstantMailEvent::class => [
+            InstantMailListener::class,
         ]
     ];
 

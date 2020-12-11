@@ -30,6 +30,8 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
 		// Employees
 		Route::delete('employees/destroy','EmployeeController@massDestroy')->name('employees.massDestroy');
 		Route::resource('/employees','EmployeeController');
+		Route::post('/employees/{employee}/instant-mail','EmployeesController@instantMail')->name('employees.instant_mail');
+		Route::post('/employees/{employees}/status','EmployeesController@changeStatus')->name('employees.status');	
 
 
 	});

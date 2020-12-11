@@ -50,7 +50,7 @@
                         {{ $employee->id ?? '' }}
                     </td>
                     <td>
-                        <img src="{{ $employee->getFirstMediaUrl() ?? '' }}" alt="{{ $employee->name }}" width="150" height="150">
+                        <img src="{{ $employee->getFirstMediaUrl('employee_photo') }}" alt="{{ $employee->name }}" width="80" height="80"/>
                     </td>
                     <td>
                         {{ $employee->name ?? '' }}
@@ -65,6 +65,11 @@
                         @can('employee_edit')
                             <a class="btn btn-xs btn-info" href="{{ route('admin.employees.edit', $employee->id) }}">
                                 {{ trans('global.edit') }}
+                            </a>
+                        @endcan
+                        @can('employee_show')
+                            <a class="btn btn-xs btn-info" href="{{ route('admin.employees.show', $employee->id) }}">
+                                {{ trans('global.show') }}
                             </a>
                         @endcan
 
