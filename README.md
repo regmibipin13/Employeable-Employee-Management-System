@@ -1,6 +1,6 @@
 # Laravel Vue and Jquery Employee Management System
 
-Simple Laravel Employee Management System based on [Adminator Bootstrap theme](https://github.com/puikinsh/Adminator-admin-dashboard)
+Advance Laravel Employee Management System based on [Adminator Bootstrap theme](https://github.com/puikinsh/Adminator-admin-dashboard)
 
 What's inside:
 
@@ -10,7 +10,7 @@ What's inside:
 - Enable / Disable Employees
 - Instant Mail to single Employees
 - Account auto created and send through mail with most reset password feature for each employee of new registration by admin like e-bankings
-
+- Designations and Departments For Employees
 
 ## How to use
 
