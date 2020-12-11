@@ -102,7 +102,7 @@
             <li class="nav-item">
                 <a href="{{ route('admin.employees.index') }}" class="nav-link">
                     <span class="icon-holder">
-                        <i class="nav-icon fas fa-fw fa-users"></i>
+                        <i class="nav-icon fas fa-fw fa-user"></i>
                     </span>
                     <span class="title">Employees</span>
                 </a>

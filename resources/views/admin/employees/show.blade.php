@@ -106,7 +106,7 @@
           <div class="profile__contact-info">
             <div class="profile__contact-info-item">
               <div class="profile__contact-info-icon">
-                <i class="fa fa-phone"></i>
+                <i class="fas fa-phone"></i>
               </div>
               <div class="profile__contact-info-body">
                 <h5 class="profile__contact-info-heading">Work number</h5>
@@ -115,7 +115,7 @@
             </div>
             <div class="profile__contact-info-item">
               <div class="profile__contact-info-icon">
-                <i class="fa fa-phone"></i>
+                <i class="fas fa-phone"></i>
               </div>
               <div class="profile__contact-info-body">
                 <h5 class="profile__contact-info-heading">Mobile number</h5>
@@ -124,7 +124,7 @@
             </div>
             <div class="profile__contact-info-item">
               <div class="profile__contact-info-icon">
-                <i class="fa fa-envelope-square"></i>
+                <i class="fas fa-envelope-square"></i>
               </div>
               <div class="profile__contact-info-body">
                 <h5 class="profile__contact-info-heading">E-mail address</h5>
@@ -133,7 +133,7 @@
             </div>
             <div class="profile__contact-info-item">
               <div class="profile__contact-info-icon">
-                <i class="fa fa-map-marker"></i>
+                <i class="fas fa-map-marker"></i>
               </div>
               <div class="profile__contact-info-body">
                 <h5 class="profile__contact-info-heading">Work address</h5>

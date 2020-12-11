@@ -136,8 +136,8 @@ class EmployeeController extends Controller {
     {
         $employee = Employee::find($id);
 		$status = $employee->user->is_enabled;
-        User::find($employee->user_id)->update([
-			'is_enabled' => !$status
+        $employee->user->update([
+            'is_enabled'=>!$status,
 		]);
         if(!$status) {
             $type = 'success';
