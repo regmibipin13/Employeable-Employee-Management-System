@@ -65,7 +65,7 @@ class EmployeeController extends Controller {
 	 */
 	public function show(Employee $employee) {
 		abort_if(Gate::denies('employee_show'), Response::HTTP_FORBIDDEN, '403 FORBIDDEN');
-		$employee->load(['user','designation','department']);
+		$employee->load(['designation','department']);
 		return view('admin.employees.show', compact('employee'));
 	}
 
@@ -135,10 +135,10 @@ class EmployeeController extends Controller {
     public function changeStatus($id)
     {
         $employee = Employee::find($id);
-        $status = $employee->user->is_enabled;
-        $employee->user->update([
-            'is_enabled'=>!$status,
-        ]);
+		$status = $employee->user->is_enabled;
+        User::find($employee->user_id)->update([
+			'is_enabled' => !$status
+		]);
         if(!$status) {
             $type = 'success';
             $message = 'Employee Account Enabled Successfully';

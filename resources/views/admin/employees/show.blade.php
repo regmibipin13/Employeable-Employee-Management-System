@@ -86,7 +86,7 @@
           
           <!-- Contact user -->
           <div class="d-flex">
-            <form action="{{ route('employees.status',$employee->id) }}" method="POST" class="p-0 m-0">
+            <form action="{{ route('admin.employees.status',$employee->id) }}" method="POST" class="p-0 m-0">
               @csrf
               <button class="profile__contact-btn btn btn-sm {{ $employee->user->is_enabled ? 'btn-danger' : 'btn-success' }}" onclick="confirm('Are you sure you want to kick this employee out of the system ?')">
                 {{ $employee->user->is_enabled ? 'Disable' : 'Enable' }}
@@ -98,7 +98,7 @@
             </a>
           </div>
 
-          @include('employees.partials.message_box')
+          @include('admin.employees.partials.message_box')
   
           <hr class="profile__contact-hr">
           
