@@ -65,7 +65,7 @@ class EmployeeController extends Controller {
 	 */
 	public function show(Employee $employee) {
 		abort_if(Gate::denies('employee_show'), Response::HTTP_FORBIDDEN, '403 FORBIDDEN');
-		$employee->load(['designation','department']);
+		$employee->load(['designation','department','user']);
 		return view('admin.employees.show', compact('employee'));
 	}
 
@@ -132,21 +132,16 @@ class EmployeeController extends Controller {
         return redirect()->back()->with('success','Mail has been sent to employee successfully');
     }
 
-    public function changeStatus($id)
+    public function changeStatus($id, Request $request)
     {
-        $employee = Employee::find($id);
-		$status = $employee->user->is_enabled;
-        $employee->user->update([
-            'is_enabled'=>!$status,
-		]);
-        if(!$status) {
-            $type = 'success';
-            $message = 'Employee Account Enabled Successfully';
-        } else {
-            $type = 'danger';
-            $message = 'Employee Account Disabled Successfully';
-        }
-        $employee->user->notify(new AccountStatusChange($employee->user));
-        return redirect()->back()->with($type,$message);
+		$employee = Employee::find($id);
+		$status = $request->status ? 1 : 0;
+		// dd($status);
+		$employee->user->is_enabled = $status;
+		$employee->user->save();
+		// dd($employee->user);
+		$employee->user->notify(new AccountStatusChange($employee->user));
+		return response()->json("User is $status successfully");
+        // return redirect()->back()->with($type,$message);
     }
 }

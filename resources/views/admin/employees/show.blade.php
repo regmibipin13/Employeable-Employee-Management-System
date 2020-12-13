@@ -85,21 +85,21 @@
         <div class="col-xs-12 col-sm-3">
           
           <!-- Contact user -->
-          <div class="d-flex">
-            <form action="{{ route('admin.employees.status',$employee->id) }}" method="POST" class="p-0 m-0">
-              @csrf
-              <button class="profile__contact-btn btn btn-sm {{ $employee->user->is_enabled ? 'btn-danger' : 'btn-success' }}" onclick="confirm('Are you sure you want to kick this employee out of the system ?')">
-                {{ $employee->user->is_enabled ? 'Disable' : 'Enable' }}
-              </button>
-            </form>
-            &nbsp;
-            <a href="#" class="profile__contact-btn btn btn-sm btn-secondary" data-toggle="modal" data-target="#instant-mail">
-              Instant Mail
-            </a>
-          </div>
+          <employee-instant-actions :employee="{{ $employee }}" inline-template>
+            <div class="d-flex">
+              <form @submit.prevent="statusChange" class="p-0 m-0">
+                <button class="profile__contact-btn btn btn-sm" :class="status ? 'btn-danger' : 'btn-success'" onclick="confirm('Are you sure you want to kick this employee out of the system ?')">
+                  @{{ status ? 'Disable' : 'Enable' }}
+                </button>
+              </form>
+              &nbsp;
+              <a href="#" class="profile__contact-btn btn btn-sm btn-secondary" data-toggle="modal" data-target="#instant-mail">
+                Instant Mail
+              </a>
+              @include('admin.employees.partials.message_box')
+            </div>
+          </employee-instant-actions>
 
-          @include('admin.employees.partials.message_box')
-  
           <hr class="profile__contact-hr">
           
           <!-- Contact info -->
