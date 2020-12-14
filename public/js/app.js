@@ -86,17 +86,6 @@
 /************************************************************************/
 /******/ ({
 
-/***/ "./node_modules/@smartweb/vue-flash-message/build/vue-flash-msg.common.js":
-/*!********************************************************************************!*\
-  !*** ./node_modules/@smartweb/vue-flash-message/build/vue-flash-msg.common.js ***!
-  \********************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports=function(t){var e={};function s(n){if(e[n])return e[n].exports;var a=e[n]={i:n,l:!1,exports:{}};return t[n].call(a.exports,a,a.exports,s),a.l=!0,a.exports}return s.m=t,s.c=e,s.d=function(t,e,n){s.o(t,e)||Object.defineProperty(t,e,{enumerable:!0,get:n})},s.r=function(t){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(t,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(t,"__esModule",{value:!0})},s.t=function(t,e){if(1&e&&(t=s(t)),8&e)return t;if(4&e&&"object"==typeof t&&t&&t.__esModule)return t;var n=Object.create(null);if(s.r(n),Object.defineProperty(n,"default",{enumerable:!0,value:t}),2&e&&"string"!=typeof t)for(var a in t)s.d(n,a,function(e){return t[e]}.bind(null,a));return n},s.n=function(t){var e=t&&t.__esModule?function(){return t.default}:function(){return t};return s.d(e,"a",e),e},s.o=function(t,e){return Object.prototype.hasOwnProperty.call(t,e)},s.p="",s(s.s="fb15")}({1582:function(t,e,s){"use strict";var n=s("adc3");s.n(n).a},"185a":function(t,e,s){"use strict";var n={},a=(s("88b1"),s("2877")),r=Object(a.a)(n,(function(){var t=this,e=t.$createElement,s=t._self._c||e;return s("transition-group",{attrs:{tag:"div",name:t.positionClass}},t._l(t.messages,(function(e){return s("VueMessageBlock",{key:e.id+"-fm",attrs:{messageObj:e,positionString:t.position}})})),1)}),[],!1,null,null,null);e.a=r.exports},2350:function(t,e){function s(t,e){var s=t[1]||"",n=t[3];if(!n)return s;if(e&&"function"==typeof btoa){var a=function(t){return"/*# sourceMappingURL=data:application/json;charset=utf-8;base64,"+btoa(unescape(encodeURIComponent(JSON.stringify(t))))+" */"}(n),r=n.sources.map((function(t){return"/*# sourceURL="+n.sourceRoot+t+" */"}));return[s].concat(r).concat([a]).join("\n")}return[s].join("\n")}t.exports=function(t){var e=[];return e.toString=function(){return this.map((function(e){var n=s(e,t);return e[2]?"@media "+e[2]+"{"+n+"}":n})).join("")},e.i=function(t,s){"string"==typeof t&&(t=[[null,t,""]]);for(var n={},a=0;a<this.length;a++){var r=this[a][0];"number"==typeof r&&(n[r]=!0)}for(a=0;a<t.length;a++){var o=t[a];"number"==typeof o[0]&&n[o[0]]||(s&&!o[2]?o[2]=s:s&&(o[2]="("+o[2]+") and ("+s+")"),e.push(o))}},e}},"278c":function(t,e,s){var n=s("c135"),a=s("9b42"),r=s("c240");t.exports=function(t,e){return n(t)||a(t,e)||r()}},2877:function(t,e,s){"use strict";function n(t,e,s,n,a,r,o,i){var f,l="function"==typeof t?t.options:t;if(e&&(l.render=e,l.staticRenderFns=s,l._compiled=!0),n&&(l.functional=!0),r&&(l._scopeId="data-v-"+r),o?(f=function(t){(t=t||this.$vnode&&this.$vnode.ssrContext||this.parent&&this.parent.$vnode&&this.parent.$vnode.ssrContext)||"undefined"==typeof __VUE_SSR_CONTEXT__||(t=__VUE_SSR_CONTEXT__),a&&a.call(this,t),t&&t._registeredComponents&&t._registeredComponents.add(o)},l._ssrRegister=f):a&&(f=i?function(){a.call(this,this.$root.$options.shadowRoot)}:a),f)if(l.functional){l._injectStyles=f;var c=l.render;l.render=function(t,e){return f.call(e),c(t,e)}}else{var u=l.beforeCreate;l.beforeCreate=u?[].concat(u,f):[f]}return{exports:t,options:l}}s.d(e,"a",(function(){return n}))},"2af9":function(t,e,s){"use strict";(function(t){s.d(e,"a",(function(){return l}));var n=s("3a16"),a=s("8c8b"),r=s("bcd4"),o=s("185a"),i=s("2f86"),f={name:"flashMessage",tag:"FlashMessage",time:8e3,strategy:"single"};function l(t){var e=1<arguments.length&&void 0!==arguments[1]?arguments[1]:{};if(!l.installed){l.installed=!0,e=Object.assign(f,e);var s=new t(Object(n.a)(e));t.prototype[e.name]=s;var c=Object.assign(o.a,Object(a.a)(e)),u=Object.assign(i.a,Object(r.a)(e));t.component(e.tag,c),t.component("VueMessageBlock",u)}}var c={install:l},u=null;"undefined"==typeof window?void 0!==t&&(u=t.Vue):u=window.Vue,u&&u.use(c)}).call(this,s("c8ba"))},"2f86":function(t,e,s){"use strict";var n={},a=(s("1582"),s("2877")),r=Object(a.a)(n,(function(){var t=this,e=t.$createElement,s=t._self._c||e;return s("div",{class:[t.classObj.status,t.classObj.basic,this.messageObj.clickable?"":"_vue-flash-msg-body_unclickabe",t.positionClass,t.messageObj.blockClass],style:t.positionStyleObj,on:{click:t.clickHandler}},[t.messageObj.componentName?s(t.messageObj.componentName,{tag:"component",attrs:{messageId:t.messageObj.id}}):t.messageObj.html?s("div",{class:["_vue-flash-msg-wrapper",t.messageObj.wrapperClass],domProps:{innerHTML:t._s(t.messageObj.html)}}):s("div",{class:["_vue-flash-msg-wrapper",t.messageObj.wrapperClass]},[t.messageObj.icon?s("div",{class:["_vue-flash-msg-body__icon",t.messageObj.iconClass]},[s("img",{attrs:{src:t.messageObj.icon,alt:"",loading:"lazy"},on:{load:t.imageLoadedHandler}})]):t._e(),s("div",{class:["_vue-flash-msg-body__content",t.messageObj.contentClass]},[s("p",{staticClass:"_vue-flash-msg-body__title",attrs:{role:"heading"}},[t._v("\n\t\t\t\t"+t._s(t.messageObj.title)+"\n\t\t\t")]),s("p",{staticClass:"_vue-flash-msg-body__text"},[t._v("\n\t\t\t\t"+t._s(t.messageObj.message)+"\n\t\t\t")])])])],1)}),[],!1,null,null,null);e.a=r.exports},3664:function(t,e,s){var n=s("d857");"string"==typeof n&&(n=[[t.i,n,""]]),n.locals&&(t.exports=n.locals),(0,s("499e").default)("0d52856b",n,!0,{sourceMap:!1,shadowMode:!1})},"3a16":function(t,e,s){"use strict";s.d(e,"a",(function(){return a}));var n=["error","success","warning","info"];function a(t){var e={data:function(){return{messages:[],nextMessageId:1,strategy:t.strategy,timeoutId:void 0,currentHeight:0}},methods:{$_vueFlashMessage_setDimensions:function(t){var e=this,s=t.height,n=t.id,a=t.img;0<this.messages.length?this.currentHeight+=s:this.currentHeight=0,0>s&&"number"==typeof n?setTimeout((function(){e.$emit("changePosition",{height:Math.abs(s),id:n})}),500):this.$emit("changePosition",{height:s,id:n,img:a})},setStrategy:function(t){return!!/^(single)|(multiple)$/i.test(t)&&(this.strategy=t,!0)},show:function(e){var s=this,n=1<arguments.length&&void 0!==arguments[1]?arguments[1]:{},a={id:this.nextMessageId++,time:e.time||t.time,status:"default",message:"",icon:"",clickable:!0};return a=Object.assign(a,e,n),"single"===this.strategy&&0<this.messages.length?(clearTimeout(this.timeoutId),this.messages=[],this.timeoutId=setTimeout((function(){!(0<s.messages.length)||(s.messages=[]),s.messages.push(a)}),600)):this.messages.push(a),a.id},deleteMessage:function(t){this.messages=this.messages.filter((function(e){return e.id!==t}))}},created:function(){this.$on("deleteMessage",this.deleteMessage),this.$on("destroy",this.$_vueFlashMessage_setDimensions),this.$on("imageLoaded",this.$_vueFlashMessage_setDimensions)}},s=!0,a=!1,r=void 0;try{for(var o,i=function(){var t=o.value;e.methods[t]=function(e,s){return this.show(Object.assign(e,{status:t}),s)}},f=n[Symbol.iterator]();!(s=(o=f.next()).done);s=!0)i()}catch(t){a=!0,r=t}finally{try{s||null==f.return||f.return()}finally{if(a)throw r}}return e}},"499e":function(t,e,s){"use strict";function n(t,e){for(var s=[],n={},a=0;a<e.length;a++){var r=e[a],o=r[0],i={id:t+":"+a,css:r[1],media:r[2],sourceMap:r[3]};n[o]?n[o].parts.push(i):s.push(n[o]={id:o,parts:[i]})}return s}s.r(e),s.d(e,"default",(function(){return h}));var a="undefined"!=typeof document;if("undefined"!=typeof DEBUG&&DEBUG&&!a)throw new Error("vue-style-loader cannot be used in a non-browser environment. Use { target: 'node' } in your Webpack config to indicate a server-rendering environment.");var r={},o=a&&(document.head||document.getElementsByTagName("head")[0]),i=null,f=0,l=!1,c=function(){},u=null,m="data-vue-ssr-id",d="undefined"!=typeof navigator&&/msie [6-9]\b/.test(navigator.userAgent.toLowerCase());function h(t,e,s,a){l=s,u=a||{};var o=n(t,e);return g(o),function(e){for(var s=[],a=0;a<o.length;a++){var i=o[a],f=r[i.id];f.refs--,s.push(f)}for(e?g(o=n(t,e)):o=[],a=0;a<s.length;a++)if(0===(f=s[a]).refs){for(var l=0;l<f.parts.length;l++)f.parts[l]();delete r[f.id]}}}function g(t){for(var e=0;e<t.length;e++){var s=t[e],n=r[s.id];if(n){n.refs++;for(var a=0;a<n.parts.length;a++)n.parts[a](s.parts[a]);for(;a<s.parts.length;a++)n.parts.push(b(s.parts[a]));n.parts.length>s.parts.length&&(n.parts.length=s.parts.length)}else{var o=[];for(a=0;a<s.parts.length;a++)o.push(b(s.parts[a]));r[s.id]={id:s.id,refs:1,parts:o}}}}function p(){var t=document.createElement("style");return t.type="text/css",o.appendChild(t),t}function b(t){var e,s,n=document.querySelector("style["+m+'~="'+t.id+'"]');if(n){if(l)return c;n.parentNode.removeChild(n)}if(d){var a=f++;n=i||(i=p()),e=y.bind(null,n,a,!1),s=y.bind(null,n,a,!0)}else n=p(),e=_.bind(null,n),s=function(){n.parentNode.removeChild(n)};return e(t),function(n){if(n){if(n.css===t.css&&n.media===t.media&&n.sourceMap===t.sourceMap)return;e(t=n)}else s()}}var v=function(){var t=[];return function(e,s){return t[e]=s,t.filter(Boolean).join("\n")}}();function y(t,e,s,n){var a=s?"":n.css;if(t.styleSheet)t.styleSheet.cssText=v(e,a);else{var r=document.createTextNode(a),o=t.childNodes;o[e]&&t.removeChild(o[e]),o.length?t.insertBefore(r,o[e]):t.appendChild(r)}}function _(t,e){var s=e.css,n=e.media,a=e.sourceMap;if(n&&t.setAttribute("media",n),u.ssrId&&t.setAttribute(m,e.id),a&&(s+="\n/*# sourceURL="+a.sources[0]+" */",s+="\n/*# sourceMappingURL=data:application/json;base64,"+btoa(unescape(encodeURIComponent(JSON.stringify(a))))+" */"),t.styleSheet)t.styleSheet.cssText=s;else{for(;t.firstChild;)t.removeChild(t.firstChild);t.appendChild(document.createTextNode(s))}}},"88b1":function(t,e,s){"use strict";var n=s("3664");s.n(n).a},"8c8b":function(t,e,s){"use strict";s.d(e,"a",(function(){return r}));var n=s("278c"),a=s.n(n);function r(t){return{props:{position:{type:String,default:"right bottom",validator:function(t){return t.split(" ").every((function(t){return 0<=["top","left","right","bottom"].indexOf(t)}))}}},computed:{strategy:function(){return this[t.name].strategy},messages:function(){return this[t.name].messages},positionClass:function(){var t=this.position.split(" "),e=a()(t,2),s=e[0],n=e[1];return"_vue-flash-msg-container_".concat(s,"-").concat(n)}}}}},"9b42":function(t,e){t.exports=function(t,e){if(Symbol.iterator in Object(t)||"[object Arguments]"===Object.prototype.toString.call(t)){var s=[],n=!0,a=!1,r=void 0;try{for(var o,i=t[Symbol.iterator]();!(n=(o=i.next()).done)&&(s.push(o.value),!e||s.length!==e);n=!0);}catch(t){a=!0,r=t}finally{try{n||null==i.return||i.return()}finally{if(a)throw r}}return s}}},adc3:function(t,e,s){var n=s("da8d");"string"==typeof n&&(n=[[t.i,n,""]]),n.locals&&(t.exports=n.locals),(0,s("499e").default)("786f93e1",n,!0,{sourceMap:!1,shadowMode:!1})},bcd4:function(t,e,s){"use strict";s.d(e,"a",(function(){return r}));var n=s("278c"),a=s.n(n);function r(t){return{props:{messageObj:{type:Object},positionString:{type:String,default:"right bottom"}},data:function(){return{timeoutId:void 0,yAxis:0,heightWithoutImage:0}},computed:{isCustom:function(){return"number"==typeof this.messageObj.x&&"number"==typeof this.messageObj.y},classObj:function(){return{status:"_vue-flash-msg-body_".concat(this.messageObj.status),basic:"_vue-flash-msg-body"}},positionClass:function(){var t=this.positionString.split(" "),e=a()(t,2),s=e[0],n=e[1];return"_vue-flash-msg-_".concat(s,"-").concat(n)},positionStyleObj:function(){var t={},e=this.positionString.split(" "),s=a()(e,2),n=s[0],r=s[1];return this.isCustom?(t[n]="".concat(this.messageObj.x,"px"),t[r]="".concat(this.messageObj.y,"px"),t):(t[r]="".concat(this.yAxis,"px"),t)}},methods:{clearData:function(){var e=!(0<arguments.length&&void 0!==arguments[0])||arguments[0];this.timeoutId&&e&&clearTimeout(this.timeoutId),this[t.name].$emit("deleteMessage",this.messageObj.id)},clickHandler:function(){this.messageObj.clickable&&this.clearData()},changePositionHandler:function(t){var e=t.height,s=t.id,n=t.img;this.messageObj.id>s&&!n?this.yAxis-=e:this.messageObj.id>s&&n&&(this.yAxis+=e)},imageLoadedHandler:function(){if(!this.isCustom){var e=this.$el.offsetHeight-this.heightWithoutImage;this[t.name].$emit("imageLoaded",{height:e,id:this.messageObj.id,img:!0})}},invokeCallback:function(t){this.messageObj[t]&&"function"==typeof this.messageObj[t]&&this.messageObj[t]()}},created:function(){this.messageObj.time&&(this.timeoutId=setTimeout(this.clearData.bind(this,!1),this.messageObj.time)),this[t.name].$on("changePosition",this.changePositionHandler)},mounted:function(){this.heightWithoutImage=this.$el.offsetHeight,this.yAxis=this[t.name].currentHeight+20,this.isCustom||this[t.name].$_vueFlashMessage_setDimensions({height:this.$el.offsetHeight+20}),this.invokeCallback("mounted")},beforeDestroy:function(){this.$off("changePosition",this.changePositionHandler),this.isCustom||this[t.name].$emit("destroy",{height:-(this.$el.offsetHeight+20),id:this.messageObj.id})},destroyed:function(){this.invokeCallback("destroyed")}}}},c135:function(t,e){t.exports=function(t){if(Array.isArray(t))return t}},c240:function(t,e){t.exports=function(){throw new TypeError("Invalid attempt to destructure non-iterable instance")}},c8ba:function(t,e){var s;s=function(){return this}();try{s=s||new Function("return this")()}catch(t){"object"==typeof window&&(s=window)}t.exports=s},d857:function(t,e,s){(t.exports=s("2350")(!1)).push([t.i,"._vue-flash-msg-container_left-bottom-enter-active,._vue-flash-msg-container_right-bottom-enter-active{-webkit-animation:fromBottom .5s forwards;animation:fromBottom .5s forwards}._vue-flash-msg-container_left-top-enter-active,._vue-flash-msg-container_right-top-enter-active{-webkit-animation:fromTop .5s forwards;animation:fromTop .5s forwards}._vue-flash-msg-container_right-bottom-leave-active,._vue-flash-msg-container_right-top-leave-active{-webkit-transform-origin:center center;transform-origin:center center;-webkit-animation:toRight .8s forwards;animation:toRight .8s forwards}._vue-flash-msg-container_left-bottom-leave-active,._vue-flash-msg-container_left-top-leave-active{-webkit-transform-origin:center center;transform-origin:center center;-webkit-animation:toLeft .8s forwards;animation:toLeft .8s forwards}.flash-message-move{-webkit-transition:-webkit-transform .2s;transition:-webkit-transform .2s;transition:transform .2s;transition:transform .2s,-webkit-transform .2s}@-webkit-keyframes fromBottom{0%{-webkit-transform:translateY(240px);transform:translateY(240px);opacity:0}70%{-webkit-transform:translateY(-20px);transform:translateY(-20px);opacity:.8}to{-webkit-transform:translateY(0);transform:translateY(0);opacity:1}}@keyframes fromBottom{0%{-webkit-transform:translateY(240px);transform:translateY(240px);opacity:0}70%{-webkit-transform:translateY(-20px);transform:translateY(-20px);opacity:.8}to{-webkit-transform:translateY(0);transform:translateY(0);opacity:1}}@-webkit-keyframes fromTop{0%{-webkit-transform:translateY(-240px);transform:translateY(-240px);opacity:0}70%{-webkit-transform:translateY(20px);transform:translateY(20px);opacity:.8}to{-webkit-transform:translateY(0);transform:translateY(0);opacity:1}}@keyframes fromTop{0%{-webkit-transform:translateY(-240px);transform:translateY(-240px);opacity:0}70%{-webkit-transform:translateY(20px);transform:translateY(20px);opacity:.8}to{-webkit-transform:translateY(0);transform:translateY(0);opacity:1}}@-webkit-keyframes toRight{0%{-webkit-transform:translateX(0);transform:translateX(0);opacity:1}30%{-webkit-transform:translateX(-20px);transform:translateX(-20px);opacity:.8}70%{-webkit-transform:translateX(240px);transform:translateX(240px);opacity:0}to{-webkit-transform:translateX(240px);transform:translateX(240px);opacity:0}}@keyframes toRight{0%{-webkit-transform:translateX(0);transform:translateX(0);opacity:1}30%{-webkit-transform:translateX(-20px);transform:translateX(-20px);opacity:.8}70%{-webkit-transform:translateX(240px);transform:translateX(240px);opacity:0}to{-webkit-transform:translateX(240px);transform:translateX(240px);opacity:0}}@-webkit-keyframes toLeft{0%{-webkit-transform:translateX(0);transform:translateX(0);opacity:1}30%{-webkit-transform:translateX(20px);transform:translateX(20px);opacity:.8}70%{-webkit-transform:translateX(-240px);transform:translateX(-240px);opacity:0}to{-webkit-transform:translateX(-240px);transform:translateX(-240px);opacity:0}}@keyframes toLeft{0%{-webkit-transform:translateX(0);transform:translateX(0);opacity:1}30%{-webkit-transform:translateX(20px);transform:translateX(20px);opacity:.8}70%{-webkit-transform:translateX(-240px);transform:translateX(-240px);opacity:0}to{-webkit-transform:translateX(-240px);transform:translateX(-240px);opacity:0}}",""])},da8d:function(t,e,s){(t.exports=s("2350")(!1)).push([t.i,"._vue-flash-msg-body{position:fixed;width:35%;border-radius:5px;-webkit-box-shadow:0 2px 6px rgba(0,0,0,.2);box-shadow:0 2px 6px rgba(0,0,0,.2);background-color:#fff;color:#fff;text-align:left;cursor:pointer;overflow:hidden;-webkit-transition:all .3s ease-in;transition:all .3s ease-in}._vue-flash-msg-body._vue-flash-msg-body_unclickabe{cursor:auto}._vue-flash-msg-body._vue-flash-msg-_right-bottom,._vue-flash-msg-body._vue-flash-msg-_right-top{right:20px}._vue-flash-msg-body._vue-flash-msg-_left-bottom,._vue-flash-msg-body._vue-flash-msg-_left-top{left:20px}._vue-flash-msg-body ._vue-flash-msg-wrapper{display:-webkit-box;display:-ms-flexbox;display:flex;width:100%}._vue-flash-msg-body ._vue-flash-msg-body__icon{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;max-width:20%;-webkit-box-align:center;-ms-flex-align:center;align-items:center;padding:10px;background-color:#fff;overflow:hidden}._vue-flash-msg-body ._vue-flash-msg-body__icon img{width:80%;height:auto}._vue-flash-msg-body ._vue-flash-msg-body__content{padding-left:20px}._vue-flash-msg-body._vue-flash-msg-body_default{color:#000}._vue-flash-msg-body._vue-flash-msg-body_success{border:1px solid #01947a;background-color:rgba(1,148,122,.68)}._vue-flash-msg-body._vue-flash-msg-body_success:hover{background-color:#01947a}._vue-flash-msg-body._vue-flash-msg-body_success ._vue-flash-msg-body__content{border-left:5px solid #01947a}._vue-flash-msg-body._vue-flash-msg-body_info{border:1px solid #1087c2;background-color:rgba(16,135,194,.68)}._vue-flash-msg-body._vue-flash-msg-body_info:hover{background-color:#1087c2}._vue-flash-msg-body._vue-flash-msg-body_info ._vue-flash-msg-body__content{border-left:5px solid #1087c2}._vue-flash-msg-body._vue-flash-msg-body_error{border:1px solid #f12222;background-color:rgba(241,34,34,.68)}._vue-flash-msg-body._vue-flash-msg-body_error:hover{background-color:#f12222}._vue-flash-msg-body._vue-flash-msg-body_error ._vue-flash-msg-body__content{border-left:5px solid #f12222}._vue-flash-msg-body._vue-flash-msg-body_warning{border:1px solid #f18b22;background-color:rgba(241,139,34,.68)}._vue-flash-msg-body._vue-flash-msg-body_warning:hover{background-color:#f18b22}._vue-flash-msg-body._vue-flash-msg-body_warning ._vue-flash-msg-body__content{border-left:5px solid #f18b22}@media (min-width:1024px) and (max-width:1200px){._vue-flash-msg-body{width:60%}._vue-flash-msg-body ._vue-flash-msg-body__content{padding:15px}}@media (min-width:320px) and (max-width:1023px){._vue-flash-msg-body{font-size:.9em;width:90%}._vue-flash-msg-body._vue-flash-msg-_right-bottom,._vue-flash-msg-body._vue-flash-msg-_right-top{right:5%}._vue-flash-msg-body._vue-flash-msg-_left-bottom,._vue-flash-msg-body._vue-flash-msg-_left-top{left:5%}._vue-flash-msg-body ._vue-flash-msg-body__content{padding:10px}}",""])},f6fd:function(t,e){!function(t){var e="currentScript",s=t.getElementsByTagName("script");e in t||Object.defineProperty(t,e,{get:function(){try{throw new Error}catch(n){var t,e=(/.*at [^\(]*\((.*):.+:.+\)$/gi.exec(n.stack)||[!1])[1];for(t in s)if(s[t].src==e||"interactive"==s[t].readyState)return s[t];return null}}})}(document)},fb15:function(t,e,s){"use strict";var n;s.r(e),"undefined"!=typeof window&&(s("f6fd"),(n=window.document.currentScript)&&(n=n.src.match(/(.+\/)[^/]+\.js(\?.*)?$/))&&(s.p=n[1]));var a=s("2af9");e.default=a.a}});
-
-/***/ }),
-
 /***/ "./node_modules/axios/index.js":
 /*!*************************************!*\
   !*** ./node_modules/axios/index.js ***!
@@ -1926,7 +1915,12 @@ __webpack_require__.r(__webpack_exports__);
   props: ['employee'],
   data: function data() {
     return {
-      status: this.employee.user.is_enabled
+      status: this.employee.user.is_enabled,
+      mail: {
+        title: '',
+        subject: '',
+        body: ''
+      }
     };
   },
   methods: {
@@ -1937,20 +1931,137 @@ __webpack_require__.r(__webpack_exports__);
         status: !this.status
       }).then(function (response) {
         _this.status = !_this.status;
-
-        _this.flashMessage.success({
-          title: 'Operation Success',
-          message: 'User Account Status Changed Successfully'
-        });
+        Vue.$toast.success('User Account status has been changed successfully');
       })["catch"](function (error) {
-        _this.flashMessage.error({
-          title: 'Error !',
-          message: 'Something went wrong , please try again'
-        });
+        Vue.$toast.error('Something went wrong . Please try again later');
       });
+    },
+    instantMail: function instantMail() {
+      var _this2 = this;
+
+      if (this.mail.title !== "" && this.mail.subject !== "" && this.mail.body !== "") {
+        axios.post('/admin/employees/' + this.employee.id + '/instant-mail', this.mail).then(function (response) {
+          _this2.mail.title = "";
+          _this2.mail.subject = "";
+          _this2.mail.body = "";
+          Vue.$toast.success('Mail was successfully sent to the employee');
+          window.location.reload();
+        })["catch"](function (error) {
+          console.log(error);
+          Vue.$toast.error('Something went wrong . Please try again later');
+        });
+      } else {
+        Vue.$toast.error('Please fill up all the details');
+      }
     }
   }
 });
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/index.js?!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-toast-notification/dist/theme-sugar.css":
+/*!**************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader??ref--6-1!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-toast-notification/dist/theme-sugar.css ***!
+  \**************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "@-webkit-keyframes fadeOut{from{opacity:1}to{opacity:0}}@keyframes fadeOut{from{opacity:1}to{opacity:0}}.v-toast--fade-out{-webkit-animation-name:fadeOut;animation-name:fadeOut}@-webkit-keyframes fadeInDown{from{opacity:0;transform:translate3d(0, -100%, 0)}to{opacity:1;transform:none}}@keyframes fadeInDown{from{opacity:0;transform:translate3d(0, -100%, 0)}to{opacity:1;transform:none}}.v-toast--fade-in-down{-webkit-animation-name:fadeInDown;animation-name:fadeInDown}@-webkit-keyframes fadeInUp{from{opacity:0;transform:translate3d(0, 100%, 0)}to{opacity:1;transform:none}}@keyframes fadeInUp{from{opacity:0;transform:translate3d(0, 100%, 0)}to{opacity:1;transform:none}}.v-toast--fade-in-up{-webkit-animation-name:fadeInUp;animation-name:fadeInUp}.fade-enter-active,.fade-leave-active{transition:opacity 150ms ease-out}.fade-enter,.fade-leave-to{opacity:0}.v-toast{position:fixed;display:flex;top:0;bottom:0;left:0;right:0;padding:2em;overflow:hidden;z-index:1052;pointer-events:none}.v-toast__item{display:inline-flex;align-items:center;-webkit-animation-duration:150ms;animation-duration:150ms;margin:.5em 0;box-shadow:0 1px 4px rgba(0,0,0,.12),0 0 6px rgba(0,0,0,.04);border-radius:.25em;pointer-events:auto;opacity:.92;color:#fff;min-height:3em;cursor:pointer}.v-toast__item--success{background-color:#47d78a}.v-toast__item--info{background-color:#1c85d5}.v-toast__item--warning{background-color:#febc22}.v-toast__item--error{background-color:#f7471c}.v-toast__item--default{background-color:#343a40}.v-toast__item.v-toast__item--top,.v-toast__item.v-toast__item--bottom{align-self:center}.v-toast__item.v-toast__item--top-right,.v-toast__item.v-toast__item--bottom-right{align-self:flex-end}.v-toast__item.v-toast__item--top-left,.v-toast__item.v-toast__item--bottom-left{align-self:flex-start}.v-toast__text{margin:0;padding:.5em 1em;word-break:break-word}.v-toast__icon{display:none}.v-toast.v-toast--top{flex-direction:column}.v-toast.v-toast--bottom{flex-direction:column-reverse}.v-toast.v-toast--custom-parent{position:absolute}@media screen and (max-width: 768px){.v-toast{padding:0;position:fixed !important}}.v-toast__item{opacity:1;min-height:4em}.v-toast__item .v-toast__text{padding:1.5em 1em}.v-toast__item .v-toast__icon{display:block;width:27px;min-width:27px;height:27px;margin-left:1em;background:url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 45.999 45.999'%3E %3Cpath fill='%23fff' d='M39.264 6.736c-8.982-8.981-23.545-8.982-32.528 0-8.982 8.982-8.981 23.545 0 32.528 8.982 8.98 23.545 8.981 32.528 0 8.981-8.983 8.98-23.545 0-32.528zM25.999 33a3 3 0 11-6 0V21a3 3 0 116 0v12zm-3.053-17.128c-1.728 0-2.88-1.224-2.844-2.735-.036-1.584 1.116-2.771 2.879-2.771 1.764 0 2.88 1.188 2.917 2.771-.001 1.511-1.152 2.735-2.952 2.735z'/%3E %3C/svg%3E\") no-repeat}.v-toast__item.v-toast__item--success .v-toast__icon{background:url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 52 52'%3E %3Cpath fill='%23fff' d='M26 0C11.664 0 0 11.663 0 26s11.664 26 26 26 26-11.663 26-26S40.336 0 26 0zm14.495 17.329l-16 18a1.997 1.997 0 01-2.745.233l-10-8a2 2 0 012.499-3.124l8.517 6.813L37.505 14.67a2.001 2.001 0 012.99 2.659z'/%3E %3C/svg%3E\") no-repeat}.v-toast__item.v-toast__item--error .v-toast__icon{background:url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 51.976 51.976'%3E %3Cpath fill='%23fff' d='M44.373 7.603c-10.137-10.137-26.632-10.138-36.77 0-10.138 10.138-10.137 26.632 0 36.77s26.632 10.138 36.77 0c10.137-10.138 10.137-26.633 0-36.77zm-8.132 28.638a2 2 0 01-2.828 0l-7.425-7.425-7.778 7.778a2 2 0 11-2.828-2.828l7.778-7.778-7.425-7.425a2 2 0 112.828-2.828l7.425 7.425 7.071-7.071a2 2 0 112.828 2.828l-7.071 7.071 7.425 7.425a2 2 0 010 2.828z'/%3E %3C/svg%3E\") no-repeat}.v-toast__item.v-toast__item--warning .v-toast__icon{background:url(\"data:image/svg+xml,%3Csvg viewBox='0 0 52 52' xmlns='http://www.w3.org/2000/svg'%3E %3Cpath fill='%23fff' d='M49.466 41.26L29.216 6.85c-.69-1.16-1.89-1.85-3.22-1.85-1.32 0-2.53.69-3.21 1.85L2.536 41.26c-.71 1.2-.72 2.64-.03 3.85.68 1.18 1.89 1.89 3.24 1.89h40.51c1.35 0 2.56-.71 3.23-1.89.7-1.21.69-2.65-.02-3.85zm-25.53-21.405h3.381v3.187l-.724 8.92H24.66l-.725-8.92v-3.187zm2.97 17.344a1.712 1.712 0 01-1.267.543c-.491 0-.914-.181-1.268-.543a1.788 1.788 0 01-.531-1.297c0-.502.176-.935.53-1.297a1.712 1.712 0 011.269-.544c.49 0 .914.181 1.268.544s.53.795.53 1.297c0 .503-.176.934-.53 1.297z'/%3E %3C/svg%3E\") no-repeat}\n", ""]);
+
+// exports
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/lib/css-base.js":
+/*!*************************************************!*\
+  !*** ./node_modules/css-loader/lib/css-base.js ***!
+  \*************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+/*
+	MIT License http://www.opensource.org/licenses/mit-license.php
+	Author Tobias Koppers @sokra
+*/
+// css base code, injected by the css-loader
+module.exports = function(useSourceMap) {
+	var list = [];
+
+	// return the list of modules as css string
+	list.toString = function toString() {
+		return this.map(function (item) {
+			var content = cssWithMappingToString(item, useSourceMap);
+			if(item[2]) {
+				return "@media " + item[2] + "{" + content + "}";
+			} else {
+				return content;
+			}
+		}).join("");
+	};
+
+	// import a list of modules into the list
+	list.i = function(modules, mediaQuery) {
+		if(typeof modules === "string")
+			modules = [[null, modules, ""]];
+		var alreadyImportedModules = {};
+		for(var i = 0; i < this.length; i++) {
+			var id = this[i][0];
+			if(typeof id === "number")
+				alreadyImportedModules[id] = true;
+		}
+		for(i = 0; i < modules.length; i++) {
+			var item = modules[i];
+			// skip already imported module
+			// this implementation is not 100% perfect for weird media query combinations
+			//  when a module is imported multiple times with different media queries.
+			//  I hope this will never occur (Hey this way we have smaller bundles)
+			if(typeof item[0] !== "number" || !alreadyImportedModules[item[0]]) {
+				if(mediaQuery && !item[2]) {
+					item[2] = mediaQuery;
+				} else if(mediaQuery) {
+					item[2] = "(" + item[2] + ") and (" + mediaQuery + ")";
+				}
+				list.push(item);
+			}
+		}
+	};
+	return list;
+};
+
+function cssWithMappingToString(item, useSourceMap) {
+	var content = item[1] || '';
+	var cssMapping = item[3];
+	if (!cssMapping) {
+		return content;
+	}
+
+	if (useSourceMap && typeof btoa === 'function') {
+		var sourceMapping = toComment(cssMapping);
+		var sourceURLs = cssMapping.sources.map(function (source) {
+			return '/*# sourceURL=' + cssMapping.sourceRoot + source + ' */'
+		});
+
+		return [content].concat(sourceURLs).concat([sourceMapping]).join('\n');
+	}
+
+	return [content].join('\n');
+}
+
+// Adapted from convert-source-map (MIT)
+function toComment(sourceMap) {
+	// eslint-disable-next-line no-undef
+	var base64 = btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap))));
+	var data = 'sourceMappingURL=data:application/json;charset=utf-8;base64,' + base64;
+
+	return '/*# ' + data + ' */';
+}
+
 
 /***/ }),
 
@@ -19512,6 +19623,515 @@ process.umask = function() { return 0; };
 
 /***/ }),
 
+/***/ "./node_modules/style-loader/lib/addStyles.js":
+/*!****************************************************!*\
+  !*** ./node_modules/style-loader/lib/addStyles.js ***!
+  \****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+/*
+	MIT License http://www.opensource.org/licenses/mit-license.php
+	Author Tobias Koppers @sokra
+*/
+
+var stylesInDom = {};
+
+var	memoize = function (fn) {
+	var memo;
+
+	return function () {
+		if (typeof memo === "undefined") memo = fn.apply(this, arguments);
+		return memo;
+	};
+};
+
+var isOldIE = memoize(function () {
+	// Test for IE <= 9 as proposed by Browserhacks
+	// @see http://browserhacks.com/#hack-e71d8692f65334173fee715c222cb805
+	// Tests for existence of standard globals is to allow style-loader
+	// to operate correctly into non-standard environments
+	// @see https://github.com/webpack-contrib/style-loader/issues/177
+	return window && document && document.all && !window.atob;
+});
+
+var getTarget = function (target, parent) {
+  if (parent){
+    return parent.querySelector(target);
+  }
+  return document.querySelector(target);
+};
+
+var getElement = (function (fn) {
+	var memo = {};
+
+	return function(target, parent) {
+                // If passing function in options, then use it for resolve "head" element.
+                // Useful for Shadow Root style i.e
+                // {
+                //   insertInto: function () { return document.querySelector("#foo").shadowRoot }
+                // }
+                if (typeof target === 'function') {
+                        return target();
+                }
+                if (typeof memo[target] === "undefined") {
+			var styleTarget = getTarget.call(this, target, parent);
+			// Special case to return head of iframe instead of iframe itself
+			if (window.HTMLIFrameElement && styleTarget instanceof window.HTMLIFrameElement) {
+				try {
+					// This will throw an exception if access to iframe is blocked
+					// due to cross-origin restrictions
+					styleTarget = styleTarget.contentDocument.head;
+				} catch(e) {
+					styleTarget = null;
+				}
+			}
+			memo[target] = styleTarget;
+		}
+		return memo[target]
+	};
+})();
+
+var singleton = null;
+var	singletonCounter = 0;
+var	stylesInsertedAtTop = [];
+
+var	fixUrls = __webpack_require__(/*! ./urls */ "./node_modules/style-loader/lib/urls.js");
+
+module.exports = function(list, options) {
+	if (typeof DEBUG !== "undefined" && DEBUG) {
+		if (typeof document !== "object") throw new Error("The style-loader cannot be used in a non-browser environment");
+	}
+
+	options = options || {};
+
+	options.attrs = typeof options.attrs === "object" ? options.attrs : {};
+
+	// Force single-tag solution on IE6-9, which has a hard limit on the # of <style>
+	// tags it will allow on a page
+	if (!options.singleton && typeof options.singleton !== "boolean") options.singleton = isOldIE();
+
+	// By default, add <style> tags to the <head> element
+        if (!options.insertInto) options.insertInto = "head";
+
+	// By default, add <style> tags to the bottom of the target
+	if (!options.insertAt) options.insertAt = "bottom";
+
+	var styles = listToStyles(list, options);
+
+	addStylesToDom(styles, options);
+
+	return function update (newList) {
+		var mayRemove = [];
+
+		for (var i = 0; i < styles.length; i++) {
+			var item = styles[i];
+			var domStyle = stylesInDom[item.id];
+
+			domStyle.refs--;
+			mayRemove.push(domStyle);
+		}
+
+		if(newList) {
+			var newStyles = listToStyles(newList, options);
+			addStylesToDom(newStyles, options);
+		}
+
+		for (var i = 0; i < mayRemove.length; i++) {
+			var domStyle = mayRemove[i];
+
+			if(domStyle.refs === 0) {
+				for (var j = 0; j < domStyle.parts.length; j++) domStyle.parts[j]();
+
+				delete stylesInDom[domStyle.id];
+			}
+		}
+	};
+};
+
+function addStylesToDom (styles, options) {
+	for (var i = 0; i < styles.length; i++) {
+		var item = styles[i];
+		var domStyle = stylesInDom[item.id];
+
+		if(domStyle) {
+			domStyle.refs++;
+
+			for(var j = 0; j < domStyle.parts.length; j++) {
+				domStyle.parts[j](item.parts[j]);
+			}
+
+			for(; j < item.parts.length; j++) {
+				domStyle.parts.push(addStyle(item.parts[j], options));
+			}
+		} else {
+			var parts = [];
+
+			for(var j = 0; j < item.parts.length; j++) {
+				parts.push(addStyle(item.parts[j], options));
+			}
+
+			stylesInDom[item.id] = {id: item.id, refs: 1, parts: parts};
+		}
+	}
+}
+
+function listToStyles (list, options) {
+	var styles = [];
+	var newStyles = {};
+
+	for (var i = 0; i < list.length; i++) {
+		var item = list[i];
+		var id = options.base ? item[0] + options.base : item[0];
+		var css = item[1];
+		var media = item[2];
+		var sourceMap = item[3];
+		var part = {css: css, media: media, sourceMap: sourceMap};
+
+		if(!newStyles[id]) styles.push(newStyles[id] = {id: id, parts: [part]});
+		else newStyles[id].parts.push(part);
+	}
+
+	return styles;
+}
+
+function insertStyleElement (options, style) {
+	var target = getElement(options.insertInto)
+
+	if (!target) {
+		throw new Error("Couldn't find a style target. This probably means that the value for the 'insertInto' parameter is invalid.");
+	}
+
+	var lastStyleElementInsertedAtTop = stylesInsertedAtTop[stylesInsertedAtTop.length - 1];
+
+	if (options.insertAt === "top") {
+		if (!lastStyleElementInsertedAtTop) {
+			target.insertBefore(style, target.firstChild);
+		} else if (lastStyleElementInsertedAtTop.nextSibling) {
+			target.insertBefore(style, lastStyleElementInsertedAtTop.nextSibling);
+		} else {
+			target.appendChild(style);
+		}
+		stylesInsertedAtTop.push(style);
+	} else if (options.insertAt === "bottom") {
+		target.appendChild(style);
+	} else if (typeof options.insertAt === "object" && options.insertAt.before) {
+		var nextSibling = getElement(options.insertAt.before, target);
+		target.insertBefore(style, nextSibling);
+	} else {
+		throw new Error("[Style Loader]\n\n Invalid value for parameter 'insertAt' ('options.insertAt') found.\n Must be 'top', 'bottom', or Object.\n (https://github.com/webpack-contrib/style-loader#insertat)\n");
+	}
+}
+
+function removeStyleElement (style) {
+	if (style.parentNode === null) return false;
+	style.parentNode.removeChild(style);
+
+	var idx = stylesInsertedAtTop.indexOf(style);
+	if(idx >= 0) {
+		stylesInsertedAtTop.splice(idx, 1);
+	}
+}
+
+function createStyleElement (options) {
+	var style = document.createElement("style");
+
+	if(options.attrs.type === undefined) {
+		options.attrs.type = "text/css";
+	}
+
+	if(options.attrs.nonce === undefined) {
+		var nonce = getNonce();
+		if (nonce) {
+			options.attrs.nonce = nonce;
+		}
+	}
+
+	addAttrs(style, options.attrs);
+	insertStyleElement(options, style);
+
+	return style;
+}
+
+function createLinkElement (options) {
+	var link = document.createElement("link");
+
+	if(options.attrs.type === undefined) {
+		options.attrs.type = "text/css";
+	}
+	options.attrs.rel = "stylesheet";
+
+	addAttrs(link, options.attrs);
+	insertStyleElement(options, link);
+
+	return link;
+}
+
+function addAttrs (el, attrs) {
+	Object.keys(attrs).forEach(function (key) {
+		el.setAttribute(key, attrs[key]);
+	});
+}
+
+function getNonce() {
+	if (false) {}
+
+	return __webpack_require__.nc;
+}
+
+function addStyle (obj, options) {
+	var style, update, remove, result;
+
+	// If a transform function was defined, run it on the css
+	if (options.transform && obj.css) {
+	    result = typeof options.transform === 'function'
+		 ? options.transform(obj.css) 
+		 : options.transform.default(obj.css);
+
+	    if (result) {
+	    	// If transform returns a value, use that instead of the original css.
+	    	// This allows running runtime transformations on the css.
+	    	obj.css = result;
+	    } else {
+	    	// If the transform function returns a falsy value, don't add this css.
+	    	// This allows conditional loading of css
+	    	return function() {
+	    		// noop
+	    	};
+	    }
+	}
+
+	if (options.singleton) {
+		var styleIndex = singletonCounter++;
+
+		style = singleton || (singleton = createStyleElement(options));
+
+		update = applyToSingletonTag.bind(null, style, styleIndex, false);
+		remove = applyToSingletonTag.bind(null, style, styleIndex, true);
+
+	} else if (
+		obj.sourceMap &&
+		typeof URL === "function" &&
+		typeof URL.createObjectURL === "function" &&
+		typeof URL.revokeObjectURL === "function" &&
+		typeof Blob === "function" &&
+		typeof btoa === "function"
+	) {
+		style = createLinkElement(options);
+		update = updateLink.bind(null, style, options);
+		remove = function () {
+			removeStyleElement(style);
+
+			if(style.href) URL.revokeObjectURL(style.href);
+		};
+	} else {
+		style = createStyleElement(options);
+		update = applyToTag.bind(null, style);
+		remove = function () {
+			removeStyleElement(style);
+		};
+	}
+
+	update(obj);
+
+	return function updateStyle (newObj) {
+		if (newObj) {
+			if (
+				newObj.css === obj.css &&
+				newObj.media === obj.media &&
+				newObj.sourceMap === obj.sourceMap
+			) {
+				return;
+			}
+
+			update(obj = newObj);
+		} else {
+			remove();
+		}
+	};
+}
+
+var replaceText = (function () {
+	var textStore = [];
+
+	return function (index, replacement) {
+		textStore[index] = replacement;
+
+		return textStore.filter(Boolean).join('\n');
+	};
+})();
+
+function applyToSingletonTag (style, index, remove, obj) {
+	var css = remove ? "" : obj.css;
+
+	if (style.styleSheet) {
+		style.styleSheet.cssText = replaceText(index, css);
+	} else {
+		var cssNode = document.createTextNode(css);
+		var childNodes = style.childNodes;
+
+		if (childNodes[index]) style.removeChild(childNodes[index]);
+
+		if (childNodes.length) {
+			style.insertBefore(cssNode, childNodes[index]);
+		} else {
+			style.appendChild(cssNode);
+		}
+	}
+}
+
+function applyToTag (style, obj) {
+	var css = obj.css;
+	var media = obj.media;
+
+	if(media) {
+		style.setAttribute("media", media)
+	}
+
+	if(style.styleSheet) {
+		style.styleSheet.cssText = css;
+	} else {
+		while(style.firstChild) {
+			style.removeChild(style.firstChild);
+		}
+
+		style.appendChild(document.createTextNode(css));
+	}
+}
+
+function updateLink (link, options, obj) {
+	var css = obj.css;
+	var sourceMap = obj.sourceMap;
+
+	/*
+		If convertToAbsoluteUrls isn't defined, but sourcemaps are enabled
+		and there is no publicPath defined then lets turn convertToAbsoluteUrls
+		on by default.  Otherwise default to the convertToAbsoluteUrls option
+		directly
+	*/
+	var autoFixUrls = options.convertToAbsoluteUrls === undefined && sourceMap;
+
+	if (options.convertToAbsoluteUrls || autoFixUrls) {
+		css = fixUrls(css);
+	}
+
+	if (sourceMap) {
+		// http://stackoverflow.com/a/26603875
+		css += "\n/*# sourceMappingURL=data:application/json;base64," + btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap)))) + " */";
+	}
+
+	var blob = new Blob([css], { type: "text/css" });
+
+	var oldSrc = link.href;
+
+	link.href = URL.createObjectURL(blob);
+
+	if(oldSrc) URL.revokeObjectURL(oldSrc);
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/style-loader/lib/urls.js":
+/*!***********************************************!*\
+  !*** ./node_modules/style-loader/lib/urls.js ***!
+  \***********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+
+/**
+ * When source maps are enabled, `style-loader` uses a link element with a data-uri to
+ * embed the css on the page. This breaks all relative urls because now they are relative to a
+ * bundle instead of the current page.
+ *
+ * One solution is to only use full urls, but that may be impossible.
+ *
+ * Instead, this function "fixes" the relative urls to be absolute according to the current page location.
+ *
+ * A rudimentary test suite is located at `test/fixUrls.js` and can be run via the `npm test` command.
+ *
+ */
+
+module.exports = function (css) {
+  // get current location
+  var location = typeof window !== "undefined" && window.location;
+
+  if (!location) {
+    throw new Error("fixUrls requires window.location");
+  }
+
+	// blank or null?
+	if (!css || typeof css !== "string") {
+	  return css;
+  }
+
+  var baseUrl = location.protocol + "//" + location.host;
+  var currentDir = baseUrl + location.pathname.replace(/\/[^\/]*$/, "/");
+
+	// convert each url(...)
+	/*
+	This regular expression is just a way to recursively match brackets within
+	a string.
+
+	 /url\s*\(  = Match on the word "url" with any whitespace after it and then a parens
+	   (  = Start a capturing group
+	     (?:  = Start a non-capturing group
+	         [^)(]  = Match anything that isn't a parentheses
+	         |  = OR
+	         \(  = Match a start parentheses
+	             (?:  = Start another non-capturing groups
+	                 [^)(]+  = Match anything that isn't a parentheses
+	                 |  = OR
+	                 \(  = Match a start parentheses
+	                     [^)(]*  = Match anything that isn't a parentheses
+	                 \)  = Match a end parentheses
+	             )  = End Group
+              *\) = Match anything and then a close parens
+          )  = Close non-capturing group
+          *  = Match anything
+       )  = Close capturing group
+	 \)  = Match a close parens
+
+	 /gi  = Get all matches, not the first.  Be case insensitive.
+	 */
+	var fixedCss = css.replace(/url\s*\(((?:[^)(]|\((?:[^)(]+|\([^)(]*\))*\))*)\)/gi, function(fullMatch, origUrl) {
+		// strip quotes (if they exist)
+		var unquotedOrigUrl = origUrl
+			.trim()
+			.replace(/^"(.*)"$/, function(o, $1){ return $1; })
+			.replace(/^'(.*)'$/, function(o, $1){ return $1; });
+
+		// already a full url? no change
+		if (/^(#|data:|http:\/\/|https:\/\/|file:\/\/\/|\s*$)/i.test(unquotedOrigUrl)) {
+		  return fullMatch;
+		}
+
+		// convert the url to a full url
+		var newUrl;
+
+		if (unquotedOrigUrl.indexOf("//") === 0) {
+		  	//TODO: should we add protocol?
+			newUrl = unquotedOrigUrl;
+		} else if (unquotedOrigUrl.indexOf("/") === 0) {
+			// path should be relative to the base url
+			newUrl = baseUrl + unquotedOrigUrl; // already starts with '/'
+		} else {
+			// path should be relative to current directory
+			newUrl = currentDir + unquotedOrigUrl.replace(/^\.\//, ""); // Strip leading './'
+		}
+
+		// send back the fixed url(...)
+		return "url(" + JSON.stringify(newUrl) + ")";
+	});
+
+	// send back the fixed css
+	return fixedCss;
+};
+
+
+/***/ }),
+
 /***/ "./node_modules/timers-browserify/main.js":
 /*!************************************************!*\
   !*** ./node_modules/timers-browserify/main.js ***!
@@ -19720,6 +20340,47 @@ function normalizeComponent (
   }
 }
 
+
+/***/ }),
+
+/***/ "./node_modules/vue-toast-notification/dist/index.min.js":
+/*!***************************************************************!*\
+  !*** ./node_modules/vue-toast-notification/dist/index.min.js ***!
+  \***************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+!function(t,e){ true?module.exports=e():undefined}(this,(function(){return function(t){var e={};function s(o){if(e[o])return e[o].exports;var n=e[o]={i:o,l:!1,exports:{}};return t[o].call(n.exports,n,n.exports,s),n.l=!0,n.exports}return s.m=t,s.c=e,s.d=function(t,e,o){s.o(t,e)||Object.defineProperty(t,e,{enumerable:!0,get:o})},s.r=function(t){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(t,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(t,"__esModule",{value:!0})},s.t=function(t,e){if(1&e&&(t=s(t)),8&e)return t;if(4&e&&"object"==typeof t&&t&&t.__esModule)return t;var o=Object.create(null);if(s.r(o),Object.defineProperty(o,"default",{enumerable:!0,value:t}),2&e&&"string"!=typeof t)for(var n in t)s.d(o,n,function(e){return t[e]}.bind(null,n));return o},s.n=function(t){var e=t&&t.__esModule?function(){return t.default}:function(){return t};return s.d(e,"a",e),e},s.o=function(t,e){return Object.prototype.hasOwnProperty.call(t,e)},s.p="",s(s.s=2)}({2:function(t,e,s){"use strict";s.r(e),s.d(e,"Component",(function(){return a})),s.d(e,"Positions",(function(){return i}));class o{constructor(t,e){this.startedAt=Date.now(),this.callback=t,this.delay=e,this.timer=setTimeout(t,e)}pause(){this.stop(),this.delay-=Date.now()-this.startedAt}resume(){this.stop(),this.startedAt=Date.now(),this.timer=setTimeout(this.callback,this.delay)}stop(){clearTimeout(this.timer)}}var n,i=Object.freeze({TOP_RIGHT:"top-right",TOP:"top",TOP_LEFT:"top-left",BOTTOM_RIGHT:"bottom-right",BOTTOM:"bottom",BOTTOM_LEFT:"bottom-left"}),r={all:n=n||new Map,on:function(t,e){var s=n.get(t);s&&s.push(e)||n.set(t,[e])},off:function(t,e){var s=n.get(t);s&&s.splice(s.indexOf(e)>>>0,1)},emit:function(t,e){(n.get(t)||[]).slice().map((function(t){t(e)})),(n.get("*")||[]).slice().map((function(s){s(t,e)}))}};var a=function(t,e,s,o,n,i,r,a){var u,c="function"==typeof t?t.options:t;if(e&&(c.render=e,c.staticRenderFns=s,c._compiled=!0),o&&(c.functional=!0),i&&(c._scopeId="data-v-"+i),r?(u=function(t){(t=t||this.$vnode&&this.$vnode.ssrContext||this.parent&&this.parent.$vnode&&this.parent.$vnode.ssrContext)||"undefined"==typeof __VUE_SSR_CONTEXT__||(t=__VUE_SSR_CONTEXT__),n&&n.call(this,t),t&&t._registeredComponents&&t._registeredComponents.add(r)},c._ssrRegister=u):n&&(u=a?function(){n.call(this,(c.functional?this.parent:this).$root.$options.shadowRoot)}:n),u)if(c.functional){c._injectStyles=u;var l=c.render;c.render=function(t,e){return u.call(e),l(t,e)}}else{var p=c.beforeCreate;c.beforeCreate=p?[].concat(p,u):[u]}return{exports:t,options:c}}({name:"toast",props:{message:{type:String,required:!0},type:{type:String,default:"success"},position:{type:String,default:i.BOTTOM_RIGHT,validator:t=>Object.values(i).includes(t)},duration:{type:Number,default:3e3},dismissible:{type:Boolean,default:!0},onDismiss:{type:Function,default:()=>{}},onClick:{type:Function,default:()=>{}},queue:Boolean,pauseOnHover:{type:Boolean,default:!0}},data:()=>({isActive:!1,parentTop:null,parentBottom:null,isHovered:!1}),beforeMount(){this.setupContainer()},mounted(){this.showNotice(),r.on("toast-clear",this.dismiss)},methods:{setupContainer(){if(this.parentTop=document.querySelector(".v-toast.v-toast--top"),this.parentBottom=document.querySelector(".v-toast.v-toast--bottom"),this.parentTop&&this.parentBottom)return;this.parentTop||(this.parentTop=document.createElement("div"),this.parentTop.className="v-toast v-toast--top"),this.parentBottom||(this.parentBottom=document.createElement("div"),this.parentBottom.className="v-toast v-toast--bottom");const t=document.body;t.appendChild(this.parentTop),t.appendChild(this.parentBottom)},shouldQueue(){return!!this.queue&&(this.parentTop.childElementCount>0||this.parentBottom.childElementCount>0)},dismiss(){this.timer.stop(),clearTimeout(this.queueTimer),this.isActive=!1,setTimeout(()=>{var t;this.onDismiss.apply(null,arguments),this.$destroy(),void 0!==(t=this.$el).remove?t.remove():t.parentNode.removeChild(t)},150)},showNotice(){this.shouldQueue()?this.queueTimer=setTimeout(this.showNotice,250):(this.correctParent.insertAdjacentElement("afterbegin",this.$el),this.isActive=!0,this.timer=new o(this.dismiss,this.duration))},whenClicked(){this.dismissible&&(this.onClick.apply(null,arguments),this.dismiss())},toggleTimer(t){this.pauseOnHover&&(t?this.timer.pause():this.timer.resume())}},computed:{correctParent(){switch(this.position){case i.TOP:case i.TOP_RIGHT:case i.TOP_LEFT:return this.parentTop;case i.BOTTOM:case i.BOTTOM_RIGHT:case i.BOTTOM_LEFT:return this.parentBottom}},transition(){switch(this.position){case i.TOP:case i.TOP_RIGHT:case i.TOP_LEFT:return{enter:"v-toast--fade-in-down",leave:"v-toast--fade-out"};case i.BOTTOM:case i.BOTTOM_RIGHT:case i.BOTTOM_LEFT:return{enter:"v-toast--fade-in-up",leave:"v-toast--fade-out"}}}},beforeDestroy(){r.off("toast-clear",this.dismiss)}},(function(){var t=this,e=t.$createElement,s=t._self._c||e;return s("transition",{attrs:{"enter-active-class":t.transition.enter,"leave-active-class":t.transition.leave}},[s("div",{directives:[{name:"show",rawName:"v-show",value:t.isActive,expression:"isActive"}],staticClass:"v-toast__item",class:["v-toast__item--"+t.type,"v-toast__item--"+t.position],attrs:{role:"alert"},on:{mouseover:function(e){return t.toggleTimer(!0)},mouseleave:function(e){return t.toggleTimer(!1)},click:t.whenClicked}},[s("div",{staticClass:"v-toast__icon"}),t._v(" "),s("p",{staticClass:"v-toast__text",domProps:{innerHTML:t._s(t.message)}})])])}),[],!1,null,null,null).exports;var u=(t,e={})=>({open(s){let o;"string"==typeof s&&(o=s);const n={message:o},i=Object.assign({},n,e,s);return new(t.extend(a))({el:document.createElement("div"),propsData:i})},clear(){r.emit("toast-clear")},success(t,e={}){return this.open(Object.assign({},{message:t,type:"success"},e))},error(t,e={}){return this.open(Object.assign({},{message:t,type:"error"},e))},info(t,e={}){return this.open(Object.assign({},{message:t,type:"info"},e))},warning(t,e={}){return this.open(Object.assign({},{message:t,type:"warning"},e))},default(t,e={}){return this.open(Object.assign({},{message:t,type:"default"},e))}});a.install=(t,e={})=>{let s=u(t,e);t.$toast=s,t.prototype.$toast=s};e.default=a}}).default}));
+
+/***/ }),
+
+/***/ "./node_modules/vue-toast-notification/dist/theme-sugar.css":
+/*!******************************************************************!*\
+  !*** ./node_modules/vue-toast-notification/dist/theme-sugar.css ***!
+  \******************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(/*! !../../css-loader??ref--6-1!../../postcss-loader/src??ref--6-2!./theme-sugar.css */ "./node_modules/css-loader/index.js?!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-toast-notification/dist/theme-sugar.css");
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(/*! ../../style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(false) {}
 
 /***/ }),
 
@@ -31782,14 +32443,17 @@ module.exports = function(module) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _smartweb_vue_flash_message__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @smartweb/vue-flash-message */ "./node_modules/@smartweb/vue-flash-message/build/vue-flash-msg.common.js");
-/* harmony import */ var _smartweb_vue_flash_message__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_smartweb_vue_flash_message__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var vue_toast_notification__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue-toast-notification */ "./node_modules/vue-toast-notification/dist/index.min.js");
+/* harmony import */ var vue_toast_notification__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue_toast_notification__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var vue_toast_notification_dist_theme_sugar_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue-toast-notification/dist/theme-sugar.css */ "./node_modules/vue-toast-notification/dist/theme-sugar.css");
+/* harmony import */ var vue_toast_notification_dist_theme_sugar_css__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(vue_toast_notification_dist_theme_sugar_css__WEBPACK_IMPORTED_MODULE_1__);
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js"); // importing the vue
 
 
 window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
 
-Vue.use(_smartweb_vue_flash_message__WEBPACK_IMPORTED_MODULE_0___default.a); // Registration of admin components
+
+Vue.use(vue_toast_notification__WEBPACK_IMPORTED_MODULE_0___default.a); // Registration of admin components
 
 Vue.component('employee-instant-actions', __webpack_require__(/*! ./components/EmployeeInstantAction */ "./resources/js/components/EmployeeInstantAction.vue")["default"]);
 var app = new Vue({

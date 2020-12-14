@@ -2,8 +2,11 @@ require('./bootstrap');
 // importing the vue
 window.Vue = require('vue');
 
-import FlashMessage from '@smartweb/vue-flash-message';
-Vue.use(FlashMessage);
+
+import VueToast from 'vue-toast-notification';
+import 'vue-toast-notification/dist/theme-sugar.css';
+Vue.use(VueToast);
+
 
 // Registration of admin components
 Vue.component('employee-instant-actions', require('./components/EmployeeInstantAction').default);

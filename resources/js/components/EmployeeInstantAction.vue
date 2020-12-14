@@ -7,6 +7,11 @@ export default {
     data() {
         return {
             status: this.employee.user.is_enabled,
+            mail:{
+                title:'',
+                subject:'',
+                body:'',
+            }
         };
     },
     methods: {
@@ -15,16 +20,28 @@ export default {
                 status:!this.status,
             }).then((response) => {
                 this.status = !this.status
-                this.flashMessage.success({
-                    title: 'Operation Success',
-                    message: 'User Account Status Changed Successfully'
-                });
+                Vue.$toast.success('User Account status has been changed successfully');
+                
             }).catch((error) => {
-                this.flashMessage.error({
-                    title: 'Error !',
-                    message: 'Something went wrong , please try again'
-                });
+                Vue.$toast.error('Something went wrong . Please try again later');
             });
+        },
+        instantMail: function() {
+            if(this.mail.title !== "" && this.mail.subject !== "" && this.mail.body !== "") {
+                axios.post('/admin/employees/'+this.employee.id+'/instant-mail',this.mail)
+                .then((response) => {
+                    this.mail.title = "";
+                    this.mail.subject = "";
+                    this.mail.body = "";
+                    Vue.$toast.success('Mail was successfully sent to the employee');
+                    window.location.reload();
+                }).catch((error) => {
+                    console.log(error);
+                    Vue.$toast.error('Something went wrong . Please try again later');
+                })
+            } else {
+                Vue.$toast.error('Please fill up all the details');
+            }
         }
     }
 }

@@ -1,4 +1,4 @@
-<div class="modal fade" id="instant-mail" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+<div class="modal fade" ref="instantMail" id="instant-mail" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
         <div class="modal-header">
@@ -8,19 +8,18 @@
           </button>
         </div>
         <div class="modal-body">
-            <form action="{{ route('admin.employees.instant_mail',$employee->id) }}" method="POST">
-              @csrf
+            <form @submit.prevent="instantMail" method="POST">
                 <div class="form-group">
                     <label for="title">Title of the Mail</label>
-                    <input type="text" class="form-control" placeholder="Title for the mail" name="title" id="title" required>
+                    <input type="text" class="form-control" placeholder="Title for the mail" v-model="mail.title" id="title">
                 </div>
                 <div class="form-group">
                     <label for="subject">Subject of the Mail</label>
-                    <input type="text" class="form-control" placeholder="Subject for the mail" name="subject" id="subject" required>
+                    <input type="text" class="form-control" placeholder="Subject for the mail" v-model="mail.subject" id="subject">
                 </div>
                 <div class="form-group">
                     <label for="body">Body of the Mail</label>
-                    <textarea name="body" id="body" rows="2" class="form-control" required></textarea>
+                    <textarea v-model="mail.body" id="body" rows="2" class="form-control"></textarea>
                 </div>
                 <button type="submit" class="btn btn-primary">Send</button>
             </form>

@@ -7,7 +7,7 @@
 <div class="mT-30">
 <div class="row">
         <div class="col-xs-12 col-sm-9">
-          
+
           <!-- User profile -->
           <div class="panel panel-default">
             <div class="panel-body">
@@ -15,8 +15,8 @@
               <img src="{{ $employee->getFirstMediaUrl('employee_photo') }}" alt="{{ $employee->name }}">
               </div>
               <div class="profile__header">
-                <h4>{{ $employee->name }} 
-                   
+                <h4>{{ $employee->name }}
+
                 </h4>
                 <p class="text-muted mt-0 pt-0">
                     {{ $employee->bio }}
@@ -55,7 +55,7 @@
               </table>
             </div>
           </div>
-  
+
           <!-- Community -->
           <div class="panel panel-default">
             <div class="panel-heading">
@@ -80,10 +80,10 @@
               </table>
             </div>
           </div>
-  
+
         </div>
         <div class="col-xs-12 col-sm-3">
-          
+
           <!-- Contact user -->
           <employee-instant-actions :employee="{{ $employee }}" inline-template>
             <div class="d-flex">
@@ -101,7 +101,7 @@
           </employee-instant-actions>
 
           <hr class="profile__contact-hr">
-          
+
           <!-- Contact info -->
           <div class="profile__contact-info">
             <div class="profile__contact-info-item">
@@ -141,7 +141,7 @@
               </div>
             </div>
           </div>
-  
+
         </div>
     </div>
 </div>

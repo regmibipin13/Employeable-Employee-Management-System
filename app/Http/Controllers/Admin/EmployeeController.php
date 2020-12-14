@@ -51,7 +51,7 @@ class EmployeeController extends Controller {
 		$user            = $employeeService->createUserAccount($request);
 		$request->merge(['user_id' => $user->id]);
 		$employee = Employee::create($request->except(['photo']));
-		if($request->photo !== null) {
+		if ($request->photo !== null) {
 			$employee->addMedia($request->photo)->toMediaCollection('employee_photo');
 		}
 		return redirect()->to('/admin/employees');
@@ -65,7 +65,7 @@ class EmployeeController extends Controller {
 	 */
 	public function show(Employee $employee) {
 		abort_if(Gate::denies('employee_show'), Response::HTTP_FORBIDDEN, '403 FORBIDDEN');
-		$employee->load(['designation','department','user']);
+		$employee->load(['designation', 'department', 'user']);
 		return view('admin.employees.show', compact('employee'));
 	}
 
@@ -79,7 +79,7 @@ class EmployeeController extends Controller {
 		abort_if(Gate::denies('employee_edit'), Response::HTTP_FORBIDDEN, '403 FORBIDDEN');
 		$designations = Designation::all();
 		$departments  = Department::all();
-		// dd($employee->started_from);	
+		// dd($employee->started_from);
 		return view('admin.employees.edit', compact('designations', 'departments', 'employee'));
 	}
 
@@ -95,11 +95,11 @@ class EmployeeController extends Controller {
 
 		$employeeService->updateUserAccount($request, $employee);
 
-		$request->merge(['user_id'=>$employee->user_id]);
+		$request->merge(['user_id' => $employee->user_id]);
 		// dd($request->all());
 		$employee->update($request->except(['photo']));
 		$employee->clearMediaCollection('employee_photo');
-		if($request->photo !== null) {
+		if ($request->photo !== null) {
 			$employee->addMedia($request->photo)->toMediaCollection('employee_photo');
 		}
 
@@ -125,23 +125,22 @@ class EmployeeController extends Controller {
 		return response(null, Response::HTTP_NO_CONTENT);
 	}
 
-	public function instantMail(Request $request, Employee $employee)
-    {
-        $request->merge(['name'=>$employee->name, 'email'=> $employee->email]);
-        event(new InstantMailEvent($request->all()));
-        return redirect()->back()->with('success','Mail has been sent to employee successfully');
-    }
-
-    public function changeStatus($id, Request $request)
-    {
+	public function instantMail(Request $request, $id) {
 		$employee = Employee::find($id);
-		$status = $request->status ? 1 : 0;
+		$request->merge(['name' => $employee->name, 'email' => $employee->email]);
+		event(new InstantMailEvent($request->all()));
+		return response()->json($employee);
+	}
+
+	public function changeStatus($id, Request $request) {
+		$employee = Employee::find($id);
+		$status   = $request->status?1:0;
 		// dd($status);
 		$employee->user->is_enabled = $status;
 		$employee->user->save();
 		// dd($employee->user);
 		$employee->user->notify(new AccountStatusChange($employee->user));
 		return response()->json("User is $status successfully");
-        // return redirect()->back()->with($type,$message);
-    }
+		// return redirect()->back()->with($type,$message);
+	}
 }
