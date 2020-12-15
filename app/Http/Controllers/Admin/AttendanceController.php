@@ -121,6 +121,7 @@ class AttendanceController extends Controller {
 	}
 
 	public function stopTimer() {
+		// dd('hello');
 		abort_if(Gate::denies('attendance_end'), Response::HTTP_FORBIDDEN, '403 HTTP_FORBIDDEN');
 		$id         = auth()->user()->employee?auth()->user()->employee->id:auth()->id();
 		$attendance = Attendance::where('employee_id', $id)->latest()->first();
@@ -133,18 +134,15 @@ class AttendanceController extends Controller {
 
 	}
 
-	public function getLatestData() {
-		$attendance = auth()->user()->employee?auth()->user()->employee->attendance->latest()->first():false;
-		if ($attendance) {
-			$data = [
-				'status'     => true,
-				'attendance' => $attendance
-			];
+	public function latestTimer() {
+		$employee = auth()->user()->employee?auth()->user()->employee:auth()->user();
+
+		$attendance = $employee->attendances?$employee->attendance->latest()->first():false;
+
+		if ($attendance && $attendance->ended_at == null) {
+			return response()->json(['status' => true]);
 		} else {
-			$data = [
-				'status' => false,
-			];
-		}
-		return response()->json($data);
+            return response()->json(['status'=>false]);
+        }
 	}
 }

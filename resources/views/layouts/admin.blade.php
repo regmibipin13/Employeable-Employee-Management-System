@@ -21,17 +21,17 @@
     @yield('styles')
 </head>
 <body class="app">
-    <div id="loader">
+    <!-- <div id="loader">
         <div class="spinner"></div>
-    </div>
-    <script>
+    </div> -->
+    <!-- <script>
         window.addEventListener('load', function load() {
             var loader = document.getElementById('loader');
             setTimeout(function() {
                 loader.classList.add('fadeOut');
             }, 200);
         });
-    </script>
+    </script> -->
     @include('partials.menu')
     <div class="page-container" id="app">
         <div class="header navbar">
@@ -103,8 +103,8 @@
         </form>
     </div>
     <script src="{{ asset('js/vendor.js') }}"></script>
-    <script src="{{ asset('js/bundle.js') }}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="{{ asset('js/bundle.js') }}"></script>
     <script src="//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
     <script src="//cdn.datatables.net/buttons/1.2.4/js/dataTables.buttons.min.js"></script>

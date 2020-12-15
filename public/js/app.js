@@ -1918,19 +1918,23 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      interval: null,
-      hours: 0,
-      minutes: 0,
-      seconds: 0,
-      intervals: {
-        seconds: 1000,
-        minutes: 1000 * 60,
-        hours: 1000 * 60 * 60
-      },
-      attendance: '',
       remarks: '',
       status: false
     };
@@ -1940,11 +1944,8 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       axios.post('/admin/attendances/start-timer').then(function (response) {
-        _this.attendance = response.data;
         _this.status = true;
         Vue.$toast.success('You time has started successfully');
-
-        _this.updateDiffs();
       })["catch"](function (error) {
         console.log(error);
         Vue.$toast.error('Something went wrong . Please try again later');
@@ -1956,32 +1957,19 @@ __webpack_require__.r(__webpack_exports__);
       axios.post('/admin/attendances/stop-timer', {
         remarks: this.remarks
       }).then(function (response) {
-        _this2.attendance = '';
         _this2.status = false;
-        Vue.$toast.success('Your time has stopped successfully');
+        Vue.$toast.success('Your time has stopped and attendance has been recorded successfully');
+        window.location.href = '/admin/attendances';
       })["catch"](function (error) {
         console.log(error);
         Vue.$toast.error('Something went wrong Please try again later');
       });
     },
-    updateDiffs: function updateDiffs() {
-      var diff = Math.abs(Date.now() - new Date(this.attendance.created_at).getTime());
-      this.hours = Math.floor(diff / this.intervals.hour);
-      diff -= this.hours * this.intervals.hour;
-      this.minutes = Math.floor(diff / this.intervals.minute);
-      diff -= this.minutes * this.intervals.minute;
-      this.seconds = Math.floor(diff / this.intervals.second);
-    },
     checkStatus: function checkStatus() {
       var _this3 = this;
 
-      axios.get('/admin/attendances/get-latest-data').then(function (response) {
+      axios.get('/admin/attendances/latest-timer').then(function (response) {
         _this3.status = response.data.status;
-        _this3.attendance = response.data.attendance;
-
-        if (_this3.status) {
-          _this3.startTime();
-        }
       })["catch"](function (error) {
         console.log(error);
       });
@@ -1989,10 +1977,6 @@ __webpack_require__.r(__webpack_exports__);
   },
   mounted: function mounted() {
     this.checkStatus();
-    console.log(new Date(2018, 9, 10).getTime());
-  },
-  destroyed: function destroyed() {
-    clearInterval(this.interval);
   }
 });
 
@@ -20322,49 +20306,124 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "d-flex align-items-center" }, [
-    _c(
-      "button",
-      {
-        staticClass: "btn btn-success",
-        on: {
-          click: function($event) {
-            $event.preventDefault()
-            return _vm.startTime($event)
-          }
-        }
-      },
-      [_vm._v("Start Time")]
-    ),
-    _vm._v("\n\t   \n\t"),
-    _c(
-      "button",
-      {
-        staticClass: "btn btn-danger",
-        on: {
-          click: function($event) {
-            $event.preventDefault()
-            return _vm.stopTimer($event)
-          }
-        }
-      },
-      [_vm._v("Stop Time")]
-    ),
-    _vm._v("\n\t   \n\t"),
     _vm.status
-      ? _c("h3", { staticClass: "text-muted p-0 m-0" }, [
-          _vm._v(
-            _vm._s(_vm.hours) +
-              " hr " +
-              _vm._s(_vm.minutes) +
-              " min " +
-              _vm._s(_vm.seconds) +
-              " sec"
-          )
-        ])
-      : _vm._e()
+      ? _c(
+          "button",
+          {
+            staticClass: "btn btn-danger",
+            attrs: { "data-toggle": "modal", "data-target": "#remarksBox" }
+          },
+          [_vm._v("Stop Time")]
+        )
+      : _vm._e(),
+    _vm._v("\n\t   \n\t"),
+    !_vm.status
+      ? _c(
+          "button",
+          {
+            staticClass: "btn btn-success",
+            on: {
+              click: function($event) {
+                $event.preventDefault()
+                return _vm.startTime($event)
+              }
+            }
+          },
+          [_vm._v("Start Time")]
+        )
+      : _vm._e(),
+    _vm._v(" "),
+    _c(
+      "div",
+      {
+        staticClass: "modal fade",
+        attrs: {
+          id: "remarksBox",
+          tabindex: "-1",
+          role: "dialog",
+          "aria-labelledby": "exampleModalLabel",
+          "aria-hidden": "true"
+        }
+      },
+      [
+        _c(
+          "div",
+          { staticClass: "modal-dialog", attrs: { role: "document" } },
+          [
+            _c("div", { staticClass: "modal-content" }, [
+              _vm._m(0),
+              _vm._v(" "),
+              _c("div", { staticClass: "modal-body" }, [
+                _c("textarea", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.remarks,
+                      expression: "remarks"
+                    }
+                  ],
+                  staticClass: "form-control",
+                  attrs: { rows: "4" },
+                  domProps: { value: _vm.remarks },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.remarks = $event.target.value
+                    }
+                  }
+                }),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-sm btn-success mt-2",
+                    on: {
+                      click: function($event) {
+                        $event.preventDefault()
+                        return _vm.stopTimer($event)
+                      }
+                    }
+                  },
+                  [_vm._v("Stop")]
+                )
+              ])
+            ])
+          ]
+        )
+      ]
+    )
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-header" }, [
+      _c(
+        "h5",
+        { staticClass: "modal-title", attrs: { id: "exampleModalLabel" } },
+        [_vm._v("Add Remarks (Optional)")]
+      ),
+      _vm._v(" "),
+      _c(
+        "button",
+        {
+          staticClass: "close",
+          attrs: {
+            type: "button",
+            "data-dismiss": "modal",
+            "aria-label": "Close"
+          }
+        },
+        [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
+      )
+    ])
+  }
+]
 render._withStripped = true
 
 

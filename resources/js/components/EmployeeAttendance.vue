@@ -1,10 +1,24 @@
 <template>
 	<div class="d-flex align-items-center">
-		<button class="btn btn-success" @click.prevent="startTime">Start Time</button>
+		<button class="btn btn-danger"  v-if="status" data-toggle="modal" data-target="#remarksBox">Stop Time</button>
 		&nbsp;&nbsp;&nbsp;
-		<button class="btn btn-danger"@click.prevent="stopTimer">Stop Time</button>
-		&nbsp;&nbsp;&nbsp;
-		<h3 class="text-muted p-0 m-0" v-if="status">{{ hours }} hr {{ minutes }} min {{ seconds }} sec</h3>
+		<button class="btn btn-success" @click.prevent="startTime" v-if="!status">Start Time</button>
+		<div class="modal fade" id="remarksBox" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		  <div class="modal-dialog" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <h5 class="modal-title" id="exampleModalLabel">Add Remarks (Optional)</h5>
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		          <span aria-hidden="true">&times;</span>
+		        </button>
+		      </div>
+		      <div class="modal-body">
+		        <textarea class="form-control" v-model="remarks" rows="4"></textarea>
+		        <button class="btn btn-sm btn-success mt-2"@click.prevent="stopTimer">Stop</button>
+		      </div>
+		    </div>
+		  </div>
+		</div>
 	</div>
 </template>
 
@@ -13,16 +27,6 @@
 	export default {
 		data:function() {
 			return {
-				interval:null,
-				hours:0,
-				minutes:0,
-				seconds:0,
-				intervals:{
-					seconds:1000,
-					minutes:1000 * 60,
-					hours:1000 * 60 * 60,
-				},
-				attendance:'',
 				remarks:'',
 				status:false,
 			}
@@ -31,10 +35,8 @@
 			startTime: function() {
 				axios.post('/admin/attendances/start-timer')
 				.then((response) => {
-					this.attendance = response.data;
 					this.status = true;
 					Vue.$toast.success('You time has started successfully');
-					this.updateDiffs();
 				}).catch((error) => {
 					console.log(error);
 					Vue.$toast.error('Something went wrong . Please try again later');
@@ -45,40 +47,25 @@
 					remarks: this.remarks,
 				})
 				.then((response) => {
-					this.attendance = '';
 					this.status = false;
-					Vue.$toast.success('Your time has stopped successfully');
+					Vue.$toast.success('Your time has stopped and attendance has been recorded successfully');
+
+					window.location.href = '/admin/attendances';
 				}).catch((error) => {
 					console.log(error);
 					Vue.$toast.error('Something went wrong Please try again later');
 				})
 			},
-			updateDiffs() {
-		      	let diff = Math.abs(Date.now() - new Date(this.attendance.created_at).getTime());
-		      	this.hours = Math.floor(diff / this.intervals.hour);
-		      	diff -= this.hours * this.intervals.hour;
-		      	this.minutes = Math.floor(diff / this.intervals.minute);
-		      	diff -= this.minutes * this.intervals.minute;
-		      	this.seconds = Math.floor(diff / this.intervals.second);
-		    },
 		    checkStatus: function() {
-		    	axios.get('/admin/attendances/get-latest-data').then((response) => {
+		    	axios.get('/admin/attendances/latest-timer').then((response) => {
 		    		this.status = response.data.status;
-		    		this.attendance = response.data.attendance;
-		    		if(this.status) {
-		    			this.startTime();
-		    		}
 		    	}).catch((error) => {
 		    		console.log(error);
 		    	})
 		    }
 		},
 		mounted() {
-		    this.checkStatus();	
-		    console.log(new Date(2018,9,10).getTime());	    
-		},
-		destroyed() {
-		    clearInterval(this.interval);    
+		    this.checkStatus();	   
 		},
 	}
 

@@ -365,3 +365,7 @@ table.dataTable thead .sorting_desc {
     font-weight: 500;
     color: #999999;
   }
+  .modal-backdrop {
+    overflow: hidden;
+    z-index: 1 !important;
+  }
