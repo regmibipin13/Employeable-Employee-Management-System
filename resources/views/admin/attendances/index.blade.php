@@ -53,7 +53,7 @@
                         {{ $attendance->id ?? '' }}
                     </td>
                     <td>
-                        {{ $attendance->employee->name ?? '' }}
+                        EMP-{{ $attendance->employee_id }}
                     </td>
                     <td>
                         {{ $attendance->date ?? '' }}
@@ -63,6 +63,9 @@
                     </td>
                     <td>
                         {{ $attendance->ended_at ?? '' }}
+                    </td>
+                    <td>
+                        {{ $attendance->remarks ?? '' }}
                     </td>
                     <td>
                         @can('attendance_edit')

@@ -31,12 +31,7 @@
             </div>
             <div class="col-md-6 form-group {{ $errors->has('started_from') ? 'has-error' : '' }}">
                 <label>{{ trans('cruds.attendance.fields.started_from') }}*</label>
-                <div class="input-group date" id="datetimepicker3" data-target-input="nearest">
-                    <input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker3" value="{{ isset($attendance) ? $attendance->started_from : old('started_from') }}" />
-                    <div class="input-group-append" data-target="#datetimepicker3" data-toggle="datetimepicker">
-                        <div class="input-group-text"><i class="fas fa-clock-o"></i></div>
-                    </div>
-                </div>
+                <input type="time" name="started_from" class="form-control" value="{{ isset($attendance) ? $attendance->started_from : old('started_from') }}">
                 @if($errors->has('started_from'))
                     <em class="invalid-feedback">
                         {{ $errors->first('started_from') }}
@@ -45,12 +40,7 @@
             </div>
             <div class="col-md-6 form-group {{ $errors->has('ended_at') ? 'has-error' : '' }}">
                 <label>{{ trans('cruds.attendance.fields.ended_at') }}*</label>
-                <div class="input-group date" id="datetimepicker3" data-target-input="nearest">
-                    <input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker3" value="{{ isset($attendance) ? $attendance->ended_at : old('ended_at') }}" />
-                    <div class="input-group-append" data-target="#datetimepicker3" data-toggle="datetimepicker">
-                        <div class="input-group-text"><i class="fas fa-clock-o"></i></div>
-                    </div>
-                </div>
+                <input type="time" name="ended_at" class="form-control" value="{{ isset($attendance) ? $attendance->ended_at : old('ended_at') }}">
                 @if($errors->has('ended_at'))
                     <em class="invalid-feedback">
                         {{ $errors->first('ended_at') }}

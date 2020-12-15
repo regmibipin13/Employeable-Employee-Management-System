@@ -34,7 +34,10 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
 		Route::post('/employees/{employees}/status', 'EmployeeController@changeStatus')->name('employees.status');
 
 		// Attendances
-		Route::delete('/attendance/destroy', 'AttendanceController@massDestroy')->name('attendances.massDestroy');
+		Route::delete('/attendances/destroy', 'AttendanceController@massDestroy')->name('attendances.massDestroy');
 		Route::resource('/attendances', 'AttendanceController');
+		Route::post('/attendances/start-timer', 'AttendanceController@startTimer');
+		Route::post('/attendances/stop-timer', 'AttendanceController@stopTimer');
+		Route::get('/attendances/get-latest-data', 'AttendanceController@getLatestData');
 
 	});

@@ -31,13 +31,8 @@
                 @endif
             </div>
             <div class="col-md-6 form-group {{ $errors->has('started_from') ? 'has-error' : '' }}">
-                <label for="started_from">{{ trans('cruds.attendance.fields.started_from') }}*</label>
-                <div class='input-group date' id='onlyTimePicker'>
-                    <input type="text" id="started_from" name="started_from" class="form-control" value="{{ old('started_from', isset($attendance) ? $attendance->started_from : '') }}" required>
-                    <span class="input-group-addon">
-                        <span class="glyphicon glyphicon-time"></span>
-                    </span>
-                </div>
+                <label>{{ trans('cruds.attendance.fields.started_from') }}*</label>
+                <input type="time" name="started_from" class="form-control" value="{{ isset($attendance) ? $attendance->started_from : old('started_from') }}">
                 @if($errors->has('started_from'))
                     <em class="invalid-feedback">
                         {{ $errors->first('started_from') }}
@@ -45,13 +40,8 @@
                 @endif
             </div>
             <div class="col-md-6 form-group {{ $errors->has('ended_at') ? 'has-error' : '' }}">
-                <label for="ended_at">{{ trans('cruds.attendance.fields.ended_at') }}*</label>
-                <div class='input-group date' id='onlyTimePicker'>
-                    <input type="text" id="ended_at" name="ended_at" class="form-control" value="{{ old('ended_at', isset($attendance) ? $attendance->ended_at : '') }}" required>
-                    <span class="input-group-addon">
-                        <span class="glyphicon glyphicon-time"></span>
-                    </span>
-                </div>
+                <label>{{ trans('cruds.attendance.fields.ended_at') }}*</label>
+                <input type="time" name="ended_at" class="form-control" value="{{ isset($attendance) ? $attendance->ended_at : old('ended_at') }}">
                 @if($errors->has('ended_at'))
                     <em class="invalid-feedback">
                         {{ $errors->first('ended_at') }}

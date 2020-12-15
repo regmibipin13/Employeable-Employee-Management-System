@@ -6,6 +6,8 @@ use App\Attendance;
 use App\Employee;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
+use Symfony\Component\HttpFoundation\Response;
 
 class AttendanceController extends Controller {
 	/**
@@ -14,6 +16,7 @@ class AttendanceController extends Controller {
 	 * @return \Illuminate\Http\Response
 	 */
 	public function index() {
+		abort_if(Gate::denies('attendance_access'), Response::HTTP_FORBIDDEN, '403 HTTP_FORBIDDEN');
 		$attendances = Attendance::all();
 		return view('admin.attendances.index', compact('attendances'));
 	}
@@ -24,6 +27,7 @@ class AttendanceController extends Controller {
 	 * @return \Illuminate\Http\Response
 	 */
 	public function create() {
+		abort_if(Gate::denies('attendance_create'), Response::HTTP_FORBIDDEN, '403 HTTP_FORBIDDEN');
 		$employees = Employee::all();
 		return view('admin.attendances.create', compact('employees'));
 	}
@@ -43,7 +47,7 @@ class AttendanceController extends Controller {
 				'remarks'      => 'nullable',
 			]);
 		Attendance::create($sanitized);
-		return redirect()->to('/attendances');
+		return redirect()->to('/admin/attendances');
 	}
 
 	/**
@@ -63,8 +67,9 @@ class AttendanceController extends Controller {
 	 * @return \Illuminate\Http\Response
 	 */
 	public function edit(Attendance $attendance) {
+		abort_if(Gate::denies('attendance_edit'), Response::HTTP_FORBIDDEN, '403 HTTP_FORBIDDEN');
 		$employees = Employee::all();
-		return view('admin.attendances.edit', compact('attendances'));
+		return view('admin.attendances.edit', compact('attendance', 'employees'));
 	}
 
 	/**
@@ -74,7 +79,7 @@ class AttendanceController extends Controller {
 	 * @param  int  $id
 	 * @return \Illuminate\Http\Response
 	 */
-	public function update(Request $request, Employee $employee) {
+	public function update(Request $request, Attendance $attendance) {
 		$sanitized = $request->validate([
 				'employee_id'  => 'required',
 				'date'         => 'required',
@@ -83,7 +88,7 @@ class AttendanceController extends Controller {
 				'remarks'      => 'nullable',
 			]);
 		$attendance->update($sanitized);
-		return redirect()->to('/attendances');
+		return redirect()->to('/admin/attendances');
 	}
 
 	/**
@@ -100,5 +105,46 @@ class AttendanceController extends Controller {
 	public function massDestroy(Request $request, Attendance $attendance) {
 		Attendance::whereIn('id', request('ids'))->delete();
 		return response(null, Response::HTTP_NO_CONTENT);
+	}
+
+	public function startTimer() {
+		abort_if(Gate::denies('attendance_start'), Response::HTTP_FORBIDDEN, '403 HTTP_FORBIDDEN');
+		$id = auth()->user()->employee?auth()->user()->employee->id:auth()->id();
+
+		$attendance = Attendance::create([
+				'employee_id'  => $id,
+				'date'         => \Carbon\Carbon::now()->format('Y-m-d'),
+				'started_from' => \Carbon\Carbon::now()->format('H:i:s'),
+			]);
+
+		return response()->json($attendance);
+	}
+
+	public function stopTimer() {
+		abort_if(Gate::denies('attendance_end'), Response::HTTP_FORBIDDEN, '403 HTTP_FORBIDDEN');
+		$id         = auth()->user()->employee?auth()->user()->employee->id:auth()->id();
+		$attendance = Attendance::where('employee_id', $id)->latest()->first();
+		$attendance->update([
+				'ended_at' => Carbon\Carbon::now()->format('H:i:s'),
+				'remarks'  => request('remarks')??''
+			]);
+
+		return response()->json($attendance);
+
+	}
+
+	public function getLatestData() {
+		$attendance = auth()->user()->employee?auth()->user()->employee->attendance->latest()->first():false;
+		if ($attendance) {
+			$data = [
+				'status'     => true,
+				'attendance' => $attendance
+			];
+		} else {
+			$data = [
+				'status' => false,
+			];
+		}
+		return response()->json($data);
 	}
 }

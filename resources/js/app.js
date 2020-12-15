@@ -10,6 +10,7 @@ Vue.use(VueToast);
 
 // Registration of admin components
 Vue.component('employee-instant-actions', require('./components/EmployeeInstantAction').default);
+Vue.component('employee-attendance', require('./components/EmployeeAttendance').default);
 
 
 const app = new Vue({
