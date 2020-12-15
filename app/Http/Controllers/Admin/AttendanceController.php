@@ -125,7 +125,7 @@ class AttendanceController extends Controller {
 		$id         = auth()->user()->employee?auth()->user()->employee->id:auth()->id();
 		$attendance = Attendance::where('employee_id', $id)->latest()->first();
 		$attendance->update([
-				'ended_at' => Carbon\Carbon::now()->format('H:i:s'),
+				'ended_at' => \Carbon\Carbon::now()->format('H:i:s'),
 				'remarks'  => request('remarks')??''
 			]);
 

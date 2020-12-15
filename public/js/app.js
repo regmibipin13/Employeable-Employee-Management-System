@@ -1965,7 +1965,7 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     updateDiffs: function updateDiffs() {
-      var diff = Math.abs(Date.now() - new Date(this.attendance.created_at.getTime()));
+      var diff = Math.abs(Date.now() - new Date(this.attendance.created_at).getTime());
       this.hours = Math.floor(diff / this.intervals.hour);
       diff -= this.hours * this.intervals.hour;
       this.minutes = Math.floor(diff / this.intervals.minute);
