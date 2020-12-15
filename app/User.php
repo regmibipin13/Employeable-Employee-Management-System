@@ -76,4 +76,14 @@ class User extends Authenticatable
         return $this->hasOne(Employee::class);
     }
 
+    public function hasRole($column , $value) 
+    {
+        $role = auth()->user()->roles()->where($column, $value)->first();
+        if($role !== null) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
 }

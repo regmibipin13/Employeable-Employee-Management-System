@@ -44,8 +44,10 @@
                    </li>
                    &nbsp;
 &nbsp;
-&nbsp;
-                   <employee-attendance></employee-attendance>
+&nbsp;  
+                  @can('attendance_start')
+                  <employee-attendance></employee-attendance>
+                  @endcan
                 </ul>
                 <ul class="nav-right">
                     @if(count(config('panel.available_languages', [])) > 1)

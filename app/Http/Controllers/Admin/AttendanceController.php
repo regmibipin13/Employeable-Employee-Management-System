@@ -137,7 +137,7 @@ class AttendanceController extends Controller {
 	public function latestTimer() {
 		$employee = auth()->user()->employee?auth()->user()->employee:auth()->user();
 
-		$attendance = $employee->attendances?$employee->attendance->latest()->first():false;
+		$attendance = $employee->attendances?$employee->attendances()->orderBy('id','DESC')->first():false;
 
 		if ($attendance && $attendance->ended_at == null) {
 			return response()->json(['status' => true]);
