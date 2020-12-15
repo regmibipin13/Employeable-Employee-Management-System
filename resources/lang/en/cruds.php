@@ -1,6 +1,18 @@
 <?php
 
 return [
+	'leave' => [
+		'title' => 'Leave Management',
+		'title_singular' => 'Leave Management',
+		'fields' => [
+			'id' => 'ID',
+			'employee_id' => 'Employee',
+			'date' => 'Date',
+			'reason' => 'Reason For Leave',
+			'description' => 'Description',
+			'is_approved' => 'Approved'
+		]
+	],
 	'attendance'      => [
 		'title'          => 'Attendance',
 		'title_singular' => 'Attendance',

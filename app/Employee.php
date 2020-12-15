@@ -30,4 +30,9 @@ class Employee extends Model implements HasMedia
     {
         return $this->hasMany(Attendance::class);
     }
+
+    public function leaves()
+    {
+        return $this->hasMany(Leave::class);
+    }
 }

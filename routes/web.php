@@ -40,4 +40,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
 		Route::post('/attendances/start-timer', 'AttendanceController@startTimer');
 		Route::post('/attendances/stop-timer', 'AttendanceController@stopTimer');
 
+		Route::delete('/leaves/destroy','LeaveController@massDestroy')->name('leaves.massDestroy');
+		Route::resource('/leaves','LeaveController');
+
 	});

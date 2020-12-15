@@ -48,6 +48,13 @@
                   @can('attendance_start')
                   <employee-attendance></employee-attendance>
                   @endcan
+
+                  <li>
+                    <a href="#" id="sidebar-toggle" class="sidebar-toggle">
+                        Current Time : {{ \Carbon\Carbon::now()->format('g:i a') }}      
+                    </a>
+                  </li>
+
                 </ul>
                 <ul class="nav-right">
                     @if(count(config('panel.available_languages', [])) > 1)

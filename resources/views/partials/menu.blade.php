@@ -118,6 +118,16 @@
                 </a>
             </li>
             @endcan
+            @can('leave_access')
+            <li class="nav-item">
+                <a href="{{ route('admin.leaves.index') }}" class="nav-link">
+                    <span class="icon-holder">
+                        <i class="nav-icon fas fa-fw fa-door-closed"></i>
+                    </span>
+                    <span class="title">Leaves Management</span>
+                </a>
+            </li>
+            @endcan
 
             <li class="nav-item">
                 <a href="#" class="nav-link" onclick="event.preventDefault(); document.getElementById('logoutform').submit();">
