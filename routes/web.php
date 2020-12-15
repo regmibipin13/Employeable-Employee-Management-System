@@ -3,7 +3,7 @@
 Route::redirect('/', '/login');
 Route::redirect('/home', '/admin');
 Auth::routes(['register' => false]);
-Route::get('/employees/password/reset/{token}','Auth\ResetPasswordController@showEmployeeResetForm');
+Route::get('/employees/password/reset/{token}', 'Auth\ResetPasswordController@showEmployeeResetForm');
 Route::post('/employees/password/reset', 'Auth\ResetPasswordController@resetEmployeePassword')->name('employees.resetPassword');
 Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'middleware' => ['auth']], function () {
 		Route::get('/', 'HomeController@index')->name('home');
@@ -28,10 +28,13 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
 		Route::resource('/departments', 'DepartmentsController');
 
 		// Employees
-		Route::delete('employees/destroy','EmployeeController@massDestroy')->name('employees.massDestroy');
-		Route::resource('/employees','EmployeeController');
-		Route::post('/employees/{employee}/instant-mail','EmployeeController@instantMail')->name('employees.instant_mail');
-		Route::post('/employees/{employees}/status','EmployeeController@changeStatus')->name('employees.status');	
+		Route::delete('employees/destroy', 'EmployeeController@massDestroy')->name('employees.massDestroy');
+		Route::resource('/employees', 'EmployeeController');
+		Route::post('/employees/{employee}/instant-mail', 'EmployeeController@instantMail')->name('employees.instant_mail');
+		Route::post('/employees/{employees}/status', 'EmployeeController@changeStatus')->name('employees.status');
 
+		// Attendances
+		Route::delete('/attendance/destroy', 'AttendanceController@massDestroy')->name('attendances.massDestroy');
+		Route::resource('/attendances', 'AttendanceController');
 
 	});

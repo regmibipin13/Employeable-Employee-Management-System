@@ -115,6 +115,7 @@
     <script src="https://cdn.ckeditor.com/ckeditor5/11.0.1/classic/ckeditor.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js"></script>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.5/js/select2.full.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.1/min/dropzone.min.js"></script>
     <script src="{{ asset('js/main.js') }}"></script>
@@ -209,7 +210,42 @@
 });
 
     </script>
+    <script type="text/javascript">
+        var defaults = {
+            calendarWeeks: true,
+            showClear: true,
+            showClose: true,
+            allowInputToggle: true,
+            useCurrent: false,
+            ignoreReadonly: true,
+            minDate: new Date(),
+            toolbarPlacement: 'top',
+            locale: 'nl',
+            icons: {
+                time: 'fa fa-clock-o',
+                date: 'fa fa-calendar',
+                up: 'fa fa-angle-up',
+                down: 'fa fa-angle-down',
+                previous: 'fa fa-angle-left',
+                next: 'fa fa-angle-right',
+                today: 'fa fa-dot-circle-o',
+                clear: 'fa fa-trash',
+                close: 'fa fa-times'
+            }
+        };
+
+        $(function() {
+            var optionsDatetime = $.extend({}, defaults, {format:'DD-MM-YYYY HH:mm'});
+            var optionsDate = $.extend({}, defaults, {format:'DD-MM-YYYY'});
+            var optionsTime = $.extend({}, defaults, {format:'HH:mm'});
+
+            $('.datepicker').datetimepicker(optionsDate);
+            $('#datetimepicker3').datetimepicker(optionsTime);
+            $('.datetimepicker').datetimepicker(optionsDatetime);
+        });
+    </script>
     <script src="{{ asset('js/app.js') }}"></script>
     @yield('scripts')
+    @stack('after-scripts')
 </body>
 </html>

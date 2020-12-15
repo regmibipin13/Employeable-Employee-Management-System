@@ -108,7 +108,17 @@
                 </a>
             </li>
             @endcan
-            
+            @can('attendance_access')
+            <li class="nav-item">
+                <a href="{{ route('admin.attendances.index') }}" class="nav-link">
+                    <span class="icon-holder">
+                        <i class="nav-icon fas fa-fw fa-clipboard"></i>
+                    </span>
+                    <span class="title">Attendances</span>
+                </a>
+            </li>
+            @endcan
+
             <li class="nav-item">
                 <a href="#" class="nav-link" onclick="event.preventDefault(); document.getElementById('logoutform').submit();">
                     <span class="icon-holder">
