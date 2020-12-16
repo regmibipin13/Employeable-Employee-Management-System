@@ -5,6 +5,10 @@ namespace App\Traits;
 
 trait SalaryDue 
 {
+	public function isOldEmployee()
+	{
+		return count($this->transactions) > 0 ? true : false;
+	}
 	public function lastTransaction()
 	{
 		return $this->transactions()->orderBy('id','DESC')->first();
