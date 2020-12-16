@@ -5,10 +5,11 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\MediaLibrary\HasMedia\HasMedia;
 use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
+use Illuminate\Notifications\Notifiable;
 
 class Employee extends Model implements HasMedia
 {
-    use HasMediaTrait;
+    use HasMediaTrait,Notifiable;
     protected $guarded = [];
 
     public function user()

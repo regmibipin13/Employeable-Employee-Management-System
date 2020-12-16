@@ -63,9 +63,8 @@
                         <leave-approve :leave="{{ $leave }}" inline-template>
                             <toggle-button 
                                 @change="onChangeEvent"
-                                v-model="status"
                                 :value="leave.is_approved ? true : false"
-                                :labels="{checked: 'Approved', unchecked: 'Pending'}"
+                                :labels="{checked: '  Approved', unchecked: '  Pending'}"
                             />
                         </leave-approve>
                         @else

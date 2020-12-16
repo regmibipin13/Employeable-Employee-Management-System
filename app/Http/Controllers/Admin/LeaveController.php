@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
 use Symfony\Component\HttpFoundation\Response;
 use App\Leave;
+use App\Notifications\Leaves\LeaveStatus;
 
 class LeaveController extends Controller
 {
@@ -123,6 +124,7 @@ class LeaveController extends Controller
         $leave->update([
             'is_approved' => request('is_approved'),
         ]);
+        $leave->employee->notify(new LeaveStatus($leave));
         return response()->json($leave);
     }
 }
