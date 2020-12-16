@@ -16,7 +16,7 @@ What's inside:
 - Leave Management (with admin approval feature)
 - Salary Management 
 	- Manage Due Salaries (Automatically shows the due salary of each employee according to the salary type of the employee)
-	- Transaction History 
+	- Transaction History (Shows all the transaction of the system like salary payment of employee and others if have)
 
 ## How to use
 
