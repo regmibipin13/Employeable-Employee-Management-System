@@ -6,10 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 use Spatie\MediaLibrary\HasMedia\HasMedia;
 use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
 use Illuminate\Notifications\Notifiable;
+use App\Traits\SalaryDue;
 
 class Employee extends Model implements HasMedia
 {
-    use HasMediaTrait,Notifiable;
+    use HasMediaTrait,Notifiable,SalaryDue;
     protected $guarded = [];
 
     public function user()
@@ -35,5 +36,10 @@ class Employee extends Model implements HasMedia
     public function leaves()
     {
         return $this->hasMany(Leave::class);
+    }
+
+    public function transactions() 
+    {
+        return $this->hasMany(Transaction::class,'payeable_id');
     }
 }

@@ -129,6 +129,42 @@
             </li>
             @endcan
 
+            @can('salary_management_access')
+                <li class="nav-item dropdown">
+                    <a class="dropdown-toggle" href="#">
+                        <span class="icon-holder">
+                            <i class="fa-fw nav-icon fas fa-money-check-alt"></i>
+                        </span>
+                        <span class="title">Salary Management</span>
+                        <span class="arrow">
+                            <i class="ti-angle-right"></i>
+                        </span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        @can('salary_dues_access')
+                            <li>
+                                <a href="{{ route("admin.salary-dues.index") }}" class="sidebar-link {{ request()->is('admin/salary-dues') || request()->is('admin/salary-dues/*') ? 'active' : '' }}">
+                                    <i class="fa-fw fas fa-money-bill-alt nav-icon">
+
+                                    </i>
+                                   Salary Dues
+                                </a>
+                            </li>
+                        @endcan
+                        @can('transactions_access')
+                            <li>
+                                <a href="{{ route("admin.transactions.index") }}" class="sidebar-link {{ request()->is('admin/transactions') || request()->is('admin/transactions/*') ? 'active' : '' }}">
+                                    <i class="fa-fw fas fa-history nav-icon">
+
+                                    </i>
+                                    Transactions History
+                                </a>
+                            </li>
+                        @endcan
+                    </ul>
+                </li>
+            @endcan
+
             <li class="nav-item">
                 <a href="#" class="nav-link" onclick="event.preventDefault(); document.getElementById('logoutform').submit();">
                     <span class="icon-holder">

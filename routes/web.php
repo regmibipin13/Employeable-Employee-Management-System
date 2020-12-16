@@ -40,8 +40,37 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
 		Route::post('/attendances/start-timer', 'AttendanceController@startTimer');
 		Route::post('/attendances/stop-timer', 'AttendanceController@stopTimer');
 
+		// Leaves Management
 		Route::delete('/leaves/destroy','LeaveController@massDestroy')->name('leaves.massDestroy');
 		Route::resource('/leaves','LeaveController');
 		Route::post('/leaves/toggle-change','LeaveController@toggleChange');
 
+
+		// Salary Dues
+
+		Route::get('/salary-dues','SalaryDueController@index')->name('salary-dues.index');
+		Route::get('/salary-dues/emp-{employee}','SalaryDueController@show')->name('salary-dues.show');
+		Route::post('/salary-dues/mark-as-paid','SalaryDueController@show')->name('salary-dues.massPaid');
+
+
+		// Transactions
+		Route::delete('/transactions/destroy','TransactionController@massDestroy')->name('transactions.massDestroy');
+		Route::get('/transactions','TransactionController@index')->name('transactions.index');
+		Route::delete('/transactions/{transaction}','TransactionController@destroy')->name('transactions.destroy');
+
+
+
 	});
+
+
+
+
+
+
+
+
+
+
+
+
+

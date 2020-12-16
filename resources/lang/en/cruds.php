@@ -1,6 +1,30 @@
 <?php
 
 return [
+	'transaction' => [
+		'title' => 'Transaction History',
+		'title_singular' => 'Title History',
+		'fields' => [
+			'id' => 'id',
+			'payeable_id' => 'Payeable Id',
+			'payeable_type' => 'Payeable Type',
+			'transaction_date' => 'Date',
+			'transaction_amount' => 'Amount',
+			'refId' => 'Ref Id',
+			'payment_method' => 'Method',
+			'remarks'=>'Remarks',
+		] 
+	],
+	'salaryDue' => [
+		'title' => 'Salary Dues',
+		'title_singular' => 'Salary Dues',
+		'fields' => [
+			'id' => 'ID',
+			'employee_id' => 'Employee ID',
+			'dueDatefrom' => 'Due from',
+			'totalAmountDue' => 'Total Amount Due',
+		]
+	],
 	'leave' => [
 		'title' => 'Leave Management',
 		'title_singular' => 'Leave Management',
@@ -104,6 +128,7 @@ return [
 		'title'          => 'Admin Management',
 		'title_singular' => 'Admin Management',
 	],
+
 	'user'                       => [
 		'title'                     => 'Users',
 		'title_singular'            => 'User',

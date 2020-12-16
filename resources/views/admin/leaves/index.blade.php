@@ -64,7 +64,7 @@
                             <toggle-button 
                                 @change="onChangeEvent"
                                 :value="leave.is_approved ? true : false"
-                                :labels="{checked: '  Approved', unchecked: '  Pending'}"
+                                :labels="{checked: 'Approved', unchecked: 'Pending'}"
                             />
                         </leave-approve>
                         @else
