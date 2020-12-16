@@ -11,6 +11,12 @@ What's inside:
 - Instant Mail to single Employees
 - Account auto created and send through mail with most reset password feature for each employee of new registration by admin like e-bankings
 - Designations and Departments For Employees
+- Managing Employees CRUDS: tables and forms
+- Attendance Management
+- Leave Management (with admin approval feature)
+- Salary Management 
+	- Manage Due Salaries (Automatically shows the due salary of each employee according to the salary type of the employee)
+	- Transaction History 
 
 ## How to use
 
