@@ -19,7 +19,7 @@
 
             <div class="col-md-12 form-group {{ $errors->has('reason') ? 'has-error' : '' }}">
                 <label for="reason">{{ trans('cruds.leave.fields.reason') }}</label>
-                <input type="text" name="reason" id="reason" class="form-control">{{ old('reason', isset($leave) ? $leave->reason : '') }}
+                <input type="text" name="reason" id="reason" class="form-control" value="{{ old('reason', isset($leave) ? $leave->reason : '') }}">
                 @if($errors->has('reason'))
                     <em class="invalid-feedback">
                         {{ $errors->first('reason') }}

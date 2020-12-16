@@ -42,5 +42,6 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
 
 		Route::delete('/leaves/destroy','LeaveController@massDestroy')->name('leaves.massDestroy');
 		Route::resource('/leaves','LeaveController');
+		Route::post('/leaves/toggle-change','LeaveController@toggleChange');
 
 	});

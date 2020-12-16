@@ -61,7 +61,8 @@ class LeaveController extends Controller
      */
     public function show($id)
     {
-        //
+        $leave = Leave::find($id);
+        return view('admin.leaves.show',compact('leave'));
     }
 
     /**
@@ -70,9 +71,11 @@ class LeaveController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Leave $leave)
+    public function edit($id)
     {
         abort_if(Gate::denies('leave_edit'),Response::HTTP_FORBIDDEN, '403 HTTP_FORBIDDEN');
+        $leave = Leave::find($id);
+        // dd($leave);
         return view('admin.leaves.edit',compact('leave'));
     }
 
@@ -89,7 +92,6 @@ class LeaveController extends Controller
             'reason' => 'required',
             'date' => 'required',
             'description' => 'required',
-            'employee_id' => 'required',
         ]);
 
         $leave->update($sanitized);
@@ -102,8 +104,9 @@ class LeaveController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Leave $leave)
+    public function destroy($id)
     {
+        $leave = Leave::find($id);
         $leave->delete();
         return redirect()->back();
     }
@@ -112,5 +115,14 @@ class LeaveController extends Controller
     {
         Leave::whereIn('id',request('ids'))->delete();
         return response(null, Response::HTTP_NO_CONTENT);
+    }
+
+    public function toggleChange()
+    {
+        $leave = Leave::find(request('id'));
+        $leave->update([
+            'is_approved' => request('is_approved'),
+        ]);
+        return response()->json($leave);
     }
 }

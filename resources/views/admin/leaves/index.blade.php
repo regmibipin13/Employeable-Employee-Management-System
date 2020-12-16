@@ -59,12 +59,28 @@
                         {{ $leave->reason ?? '' }}
                     </td>
                     <td>
+                        @can('leave_approve')
+                        <leave-approve :leave="{{ $leave }}" inline-template>
+                            <toggle-button 
+                                @change="onChangeEvent"
+                                v-model="status"
+                                :value="leave.is_approved ? true : false"
+                                :labels="{checked: 'Approved', unchecked: 'Pending'}"
+                            />
+                        </leave-approve>
+                        @else
                         <span class="badge badge-pill {{ $leave->is_approved ? 'badge-success' : 'badge-danger' }}">{{ $leave->is_approved ? 'approved' : 'pending' }}</span>
+                        @endcan
                     </td>
                     <td>
                         @can('leave_edit')
                             <a class="btn btn-xs btn-info" href="{{ route('admin.leaves.edit', $leave->id) }}">
                                 {{ trans('global.edit') }}
+                            </a>
+                        @endcan
+                        @can('leave_show')
+                            <a class="btn btn-xs btn-primary" href="{{ route('admin.leaves.show', $leave->id) }}">
+                                {{ trans('global.show') }}
                             </a>
                         @endcan
                         @can('leave_delete')
