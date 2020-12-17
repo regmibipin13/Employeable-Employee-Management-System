@@ -260,6 +260,60 @@ class PermissionsTableSeeder extends Seeder
                 'created_at' => '2019-09-28 14:22:15',
                 'updated_at' => '2019-09-28 14:22:15',
             ],
+            [
+                'id'         => '43',
+                'title'      => 'salary_dues_access',
+                'created_at' => '2019-09-28 14:22:15',
+                'updated_at' => '2019-09-28 14:22:15',
+            ],
+            [
+                'id'         => '44',
+                'title'      => 'salary_dues_show',
+                'created_at' => '2019-09-28 14:22:15',
+                'updated_at' => '2019-09-28 14:22:15',
+            ],
+            [
+                'id'         => '45',
+                'title'      => 'salary_dues_pay',
+                'created_at' => '2019-09-28 14:22:15',
+                'updated_at' => '2019-09-28 14:22:15',
+            ],
+            [
+                'id'         => '46',
+                'title'      => 'transactions_access',
+                'created_at' => '2019-09-28 14:22:15',
+                'updated_at' => '2019-09-28 14:22:15',
+            ],
+            [
+                'id'         => '47',
+                'title'      => 'transactions_delete',
+                'created_at' => '2019-09-28 14:22:15',
+                'updated_at' => '2019-09-28 14:22:15',
+            ],
+            [
+                'id'         => '48',
+                'title'      => 'salary_management_access',
+                'created_at' => '2019-09-28 14:22:15',
+                'updated_at' => '2019-09-28 14:22:15',
+            ],
+            [
+                'id'         => '49',
+                'title'      => 'holidays_access',
+                'created_at' => '2019-09-28 14:22:15',
+                'updated_at' => '2019-09-28 14:22:15',
+            ],
+            [
+                'id'         => '50',
+                'title'      => 'holidays_create',
+                'created_at' => '2019-09-28 14:22:15',
+                'updated_at' => '2019-09-28 14:22:15',
+            ],
+            [
+                'id'         => '51',
+                'title'      => 'holidays_delete',
+                'created_at' => '2019-09-28 14:22:15',
+                'updated_at' => '2019-09-28 14:22:15',
+            ],
         ];
 
         Permission::insert($permissions);

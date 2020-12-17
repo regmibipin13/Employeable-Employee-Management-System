@@ -165,6 +165,17 @@
                 </li>
             @endcan
 
+            @can('holidays_access')
+            <li class="nav-item">
+                <a href="{{ route('admin.holidays.index') }}" class="nav-link">
+                    <span class="icon-holder">
+                        <i class="nav-icon fa-fw fas fa-gift"></i>
+                    </span>
+                    <span class="title">Holidays</span>
+                </a>
+            </li>
+            @endcan
+
             <li class="nav-item">
                 <a href="#" class="nav-link" onclick="event.preventDefault(); document.getElementById('logoutform').submit();">
                     <span class="icon-holder">

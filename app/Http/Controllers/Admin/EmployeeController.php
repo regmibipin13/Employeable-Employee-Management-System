@@ -98,8 +98,8 @@ class EmployeeController extends Controller {
 		$request->merge(['user_id' => $employee->user_id]);
 		// dd($request->all());
 		$employee->update($request->except(['photo']));
-		$employee->clearMediaCollection('employee_photo');
 		if ($request->photo !== null) {
+			$employee->clearMediaCollection('employee_photo');
 			$employee->addMedia($request->photo)->toMediaCollection('employee_photo');
 		}
 

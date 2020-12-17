@@ -52,8 +52,8 @@
                             </a>
                         @endcan
                         @can('salary_dues_pay')
-                            <a class="btn btn-xs btn-success" href="{{ route('admin.salary-dues.show', $salaryDue->id) }}">
-                                Pay
+                            <a class="btn btn-xs btn-success" href="{{ route('admin.salary-dues.payment_form', $salaryDue->id) }}">
+                                Pay Salary
                             </a>
                         @endcan
                     </td>
@@ -70,35 +70,6 @@
 <script>
     $(function () {
         let dtButtons = $.extend(true, [], $.fn.dataTable.defaults.buttons)
-        @can('leave_delete')
-          let deleteButtonTrans = 'Mark as Paid'
-          let deleteButton = {
-            text: deleteButtonTrans,
-            url: "{{ route('admin.salary-dues.massPaid') }}",
-            className: 'btn-success',
-            action: function (e, dt, node, config) {
-              var ids = $.map(dt.rows({ selected: true }).nodes(), function (entry) {
-                  return $(entry).data('entry-id')
-              });
-
-              if (ids.length === 0) {
-                alert('{{ trans('global.datatables.zero_selected') }}')
-
-                return
-              }
-
-              if (confirm('Are you sure ? Note: This is record the transaction as you have paid the actual salary not the total due date ')) {
-                $.ajax({
-                  headers: {'x-csrf-token': _token},
-                  method: 'POST',
-                  url: config.url,
-                  data: { ids: ids, _method: 'POST' }})
-                  .done(function () { location.reload() })
-              }
-            }
-          }
-          dtButtons.push(deleteButton)
-        @endcan
         $.extend(true, $.fn.dataTable.defaults, {
         order: [[ 1, 'desc' ]],
         pageLength: 100,

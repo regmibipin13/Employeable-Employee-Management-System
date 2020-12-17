@@ -45,18 +45,20 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
 		Route::resource('/leaves','LeaveController');
 		Route::post('/leaves/toggle-change','LeaveController@toggleChange');
 
-
-		// Salary Dues
-
 		Route::get('/salary-dues','SalaryDueController@index')->name('salary-dues.index');
 		Route::get('/salary-dues/emp-{employee}','SalaryDueController@show')->name('salary-dues.show');
-		Route::post('/salary-dues/mark-as-paid','SalaryDueController@show')->name('salary-dues.massPaid');
+		Route::get('/salary-dues/emp-{employee}/pay','SalaryDueController@showPaymentForm')->name('salary-dues.payment_form');
+		Route::post('/salary-dues/emp-{employee}/pay','SalaryDueController@pay')->name('salary-dues.pay');
 
 
 		// Transactions
 		Route::delete('/transactions/destroy','TransactionController@massDestroy')->name('transactions.massDestroy');
 		Route::get('/transactions','TransactionController@index')->name('transactions.index');
 		Route::delete('/transactions/{transaction}','TransactionController@destroy')->name('transactions.destroy');
+
+
+		// Holidays
+		Route::resource('/holidays','HolidayController');
 
 
 

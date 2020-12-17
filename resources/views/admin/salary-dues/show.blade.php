@@ -44,7 +44,7 @@
                     Last Transaction Date
                 </th>
                 <td>
-                    {{ $salaryDue->lastTransaction()->created_at->diffForHumans() }} ({{ $salaryDue->lastTransactionDate() }})
+                    {{ $salaryDue->isOldEmployee() ? $salaryDue->lastTransaction()->created_at->diffForHumans() : 'newly appointed employee' }} ({{ $salaryDue->lastTransactionDate() }})
                 </td>
             </tr>
             <tr>
@@ -53,6 +53,14 @@
                 </th>
                 <td>
                     {{ $salaryDue->lastTransactionAmount() }}
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    Action
+                </th>
+                <td>
+                    <a href="{{ route('admin.salary-dues.payment_form',$salaryDue->id) }}" class="btn btn-success">Pay Salary</a>
                 </td>
             </tr>
             </tbody>

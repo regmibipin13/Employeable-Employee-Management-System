@@ -369,3 +369,9 @@ table.dataTable thead .sorting_desc {
     overflow: hidden;
     z-index: 1 !important;
   }
+  .single-box-holiday {
+    background: #f4f4f4;
+  }
+  .tooltiptext {
+    display: none;
+  }

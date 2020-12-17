@@ -11,17 +11,17 @@ trait SalaryDue
 	}
 	public function lastTransaction()
 	{
-		return $this->transactions()->orderBy('id','DESC')->first();
+		return $this->isOldEmployee() ? $this->transactions()->orderBy('id','DESC')->first() : null;
 	}
 
 	public function lastTransactionDate()
 	{
-		return $this->lastTransaction()->created_at->toDateTimeString();
+		return $this->isOldEmployee() ? $this->lastTransaction()->created_at->toDateTimeString() : \Carbon\Carbon::createFromFormat('Y-m-d', $this->started_from)->toDateTimeString();
 	}
 
 	public function lastTransactionAmount()
 	{
-		return $this->lastTransaction()->transaction_amount;
+		return $this->isOldEmployee() ? $this->lastTransaction()->transaction_amount : 0;
 	}
 
 	public function accordingToType()
