@@ -11,8 +11,10 @@ import ToggleButton from 'vue-js-toggle-button';
 Vue.use(ToggleButton);
 
 import InfiniteLoading from 'vue-infinite-loading';
-
 Vue.use(InfiniteLoading);
+
+import VModal from 'vue-js-modal';
+Vue.use(VModal);
 
 
 // Registration of admin components

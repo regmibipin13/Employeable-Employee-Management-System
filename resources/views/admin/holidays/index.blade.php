@@ -16,7 +16,7 @@
 	            </div>
 	            <div class="form-group col-md-4">
 	            	<label>Reason</label>
-	            	<input type="text" v-model="form.reason" placeholder="Enter the Reason for Holiday" class="form-control">
+	            	<input type="text" v-model="form.reason" placeholder="Enter the Reason for Holiday" class="form-control" required>
 	            </div>
 	            <div class="form-group col-md-2">
 	            	<br />
@@ -28,10 +28,11 @@
 
 		<div class="calender-box row mb-5 d-flex justify-content-between" v-cloak>
 			<div class="col-md-2 single-box-holiday text-center pt-2 pb-2 mb-2 mr-1" v-for="(holiday,index) in holidays">
-				@{{ holiday.date }} &nbsp; <i class="fas fa-gift" style="color: green;" @click="showDetails(index)"></i> &nbsp; <i class="fas fa-trash-alt" style="color:red; cursor: pointer;" @click="deleteHoliday(index)"></i>
-
-				<p :id="'details-'+index" style="display: none;">@{{ holiday.reason ? holiday.reason : 'not mentioned' }}</p>
+				@{{ holiday.date }} &nbsp; <i class="fas fa-gift" style="color: green;" @click="showDetails(holiday.reason)"></i> &nbsp; <i class="fas fa-trash-alt" style="color:red; cursor: pointer;" @click="deleteHoliday(index)"></i>
 			</div>
+			<modal name="holiday" :height="'auto'">
+				<p class="p-5">@{{ selected == '' ? 'not mentioned' : selected }}</p>
+			</modal>
 		</div>
 		<div class="col-md-12">
 			<infinite-loading @infinite="loadHolidays" spinner="waveDots">

@@ -12,7 +12,8 @@
 				form:{
 					date:'',
 					reason:'',
-				}
+				},
+				selected:'not mentioned',
 			};
 		},
 		methods:{
@@ -54,8 +55,9 @@
 					Vue.$toast.error('Something went wrong . Please try again later');
 				})
 			},
-			showDetails: function(index) {
-				$('#details-'+index).show();
+			showDetails: function(reason) {
+				this.selected = reason == '' ? 'not mentioned': reason;
+				this.$modal.show('holiday');
 			}
 		},
 	}
