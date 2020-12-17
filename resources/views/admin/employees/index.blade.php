@@ -18,7 +18,7 @@
             <thead>
             <tr>
                 <th width="10">
-
+                    Mark
                 </th>
                 <th>
                     {{ trans('cruds.employee.fields.id') }}
@@ -36,7 +36,7 @@
                     {{ trans('cruds.employee.fields.phone') }}
                 </th>
                 <th>
-                    &nbsp;
+                    Actions
                 </th>
             </tr>
             </thead>

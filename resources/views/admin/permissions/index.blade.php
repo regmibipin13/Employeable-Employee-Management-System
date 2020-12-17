@@ -18,7 +18,7 @@
             <thead>
             <tr>
                 <th width="10">
-
+                  Mark
                 </th>
                 <th>
                     {{ trans('cruds.permission.fields.id') }}
@@ -27,7 +27,7 @@
                     {{ trans('cruds.permission.fields.title') }}
                 </th>
                 <th>
-                    &nbsp;
+                    Actions
                 </th>
             </tr>
             </thead>

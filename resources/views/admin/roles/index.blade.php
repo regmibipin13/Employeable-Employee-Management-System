@@ -18,7 +18,7 @@
             <thead>
             <tr>
                 <th width="10">
-
+                    Tick
                 </th>
                 <th>
                     {{ trans('cruds.role.fields.id') }}
@@ -30,7 +30,7 @@
                     {{ trans('cruds.role.fields.permissions') }}
                 </th>
                 <th>
-                    &nbsp;
+                    Actions
                 </th>
             </tr>
             </thead>

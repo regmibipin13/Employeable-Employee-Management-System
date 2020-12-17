@@ -18,7 +18,7 @@
             <thead>
             <tr>
                 <th width="10">
-
+                    Mark
                 </th>
                 <th>
                     {{ trans('cruds.leave.fields.id') }}
@@ -36,7 +36,7 @@
                     {{ trans('cruds.leave.fields.is_approved') }}
                 </th>
                 <th>
-                    &nbsp;
+                    Actions
                 </th>
             </tr>
             </thead>

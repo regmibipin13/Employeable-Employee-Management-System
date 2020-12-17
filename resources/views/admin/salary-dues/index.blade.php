@@ -9,7 +9,7 @@
             <thead>
             <tr>
                 <th width="10">
-
+                    Tick
                 </th>
                 <th>
                     {{ trans('cruds.salaryDue.fields.employee_id') }}
@@ -24,7 +24,7 @@
                     {{ trans('cruds.salaryDue.fields.totalAmountDue') }}
                 </th>
                 <th>
-                    &nbsp;
+                    Action
                 </th>
             </tr>
             </thead>

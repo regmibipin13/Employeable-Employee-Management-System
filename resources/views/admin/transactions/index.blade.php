@@ -9,7 +9,7 @@
             <thead>
             <tr>
                 <th width="10">
-
+                    Tick
                 </th>
                 <th>
                     {{ trans('cruds.transaction.fields.id') }}
@@ -36,7 +36,7 @@
                     {{ trans('cruds.transaction.fields.remarks') }}
                 </th>
                 <th>
-                    &nbsp;
+                    Actions
                 </th>
             </tr>
             </thead>

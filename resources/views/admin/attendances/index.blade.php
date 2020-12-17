@@ -18,7 +18,7 @@
             <thead>
             <tr>
                 <th width="10">
-
+                    Mark
                 </th>
                 <th>
                     {{ trans('cruds.attendance.fields.id') }}
@@ -39,7 +39,7 @@
                     {{ trans('cruds.attendance.fields.remarks') }}
                 </th>
                 <th>
-                    &nbsp;
+                    Actions
                 </th>
             </tr>
             </thead>
