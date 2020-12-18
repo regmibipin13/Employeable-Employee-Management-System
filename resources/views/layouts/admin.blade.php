@@ -80,9 +80,9 @@
                       </a>
                       <ul class="dropdown-menu fsz-sm">
                         <li>
-                          <a href="" class="d-b td-n pY-5 bgcH-grey-100 c-grey-700">
+                          <a href="{{ route('admin.users.showChangePasswordForm',auth()->id()) }}" class="d-b td-n pY-5 bgcH-grey-100 c-grey-700">
                             <i class="ti-settings mR-10"></i>
-                            <span>Setting</span>
+                            <span>Change Password</span>
                           </a>
                         </li>
                         <li>
@@ -110,22 +110,7 @@
                         <div class="masonry-sizer col-md-12"></div>
                         <div class="masonry-item col-md-12">
                             <div class="bgc-white p-20 bd">
-                                @if(session('message'))
-                                    <div class="row mb-2">
-                                        <div class="col-lg-12">
-                                            <div class="alert alert-success" role="alert">{{ session('message') }}</div>
-                                        </div>
-                                    </div>
-                                @endif
-                                @if($errors->count() > 0)
-                                    <div class="alert alert-danger">
-                                        <ul class="list-unstyled">
-                                            @foreach($errors->all() as $error)
-                                                <li>{{ $error }}</li>
-                                            @endforeach
-                                        </ul>
-                                    </div>
-                                @endif
+                                @include('admin.flash')
                                 <div id="app">
                                   @yield('content')
                                 </div>

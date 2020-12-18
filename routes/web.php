@@ -18,6 +18,8 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
 		// Users
 		Route::delete('users/destroy', 'UsersController@massDestroy')->name('users.massDestroy');
 		Route::resource('users', 'UsersController');
+		Route::get('/users/{user}/change-password','UsersController@showChangeForm')->name('users.showChangePasswordForm');
+		Route::post('/users/{user}/change-password','UsersController@changePassword')->name('users.changePassword');
 
 		// Designation
 		Route::delete('designations/destroy', 'DesignationController@massDestroy')->name('designations.massDestroy');

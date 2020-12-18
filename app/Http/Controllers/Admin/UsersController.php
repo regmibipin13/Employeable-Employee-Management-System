@@ -11,6 +11,7 @@ use App\User;
 use Gate;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Hash;
 
 class UsersController extends Controller
 {
@@ -87,4 +88,43 @@ class UsersController extends Controller
         return response(null, Response::HTTP_NO_CONTENT);
 
     }
+
+    public function showChangeForm($id)
+    {
+        return view('admin.change_password');
+    }
+
+    public function changePassword(Request $request)
+    {
+        $request->validate([
+            'old_password' => 'required',
+            'password' => 'required | confirmed | min:8',
+        ]);
+
+        if(! Hash::check($request->old_password, auth()->user()->password)) {
+            return redirect()->back()->with('error','Old password is not correct');
+        }
+
+        auth()->user()->update([
+            'password' => Hash::make($request->password),
+        ]);
+
+        return redirect()->back()->with('success','Password Changed Successfully');
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
