@@ -12,7 +12,7 @@
                 <span id="sparklinedash"></span>
               </div>
               <div class="peer">
-                <span class="d-ib lh-0 va-m fw-600 bdrs-10em pX-15 pY-15 bgc-green-50 c-green-500">100</span>
+                <span class="d-ib lh-0 va-m fw-600 bdrs-10em pX-15 pY-15 bgc-green-50 c-green-500">{{ $totalEmployees }}</span>
               </div>
             </div>
           </div>
@@ -29,7 +29,7 @@
                 <span id="sparklinedash2"></span>
               </div>
               <div class="peer">
-                <span class="d-ib lh-0 va-m fw-600 bdrs-10em pX-15 pY-15 bgc-red-50 c-red-500">90%</span>
+                <span class="d-ib lh-0 va-m fw-600 bdrs-10em pX-15 pY-15 bgc-red-50 c-red-500">{{ $totalAttendanceToday / $totalEmployees * 100 }}%</span>
               </div>
             </div>
           </div>
@@ -46,7 +46,7 @@
                 <span id="sparklinedash3"></span>
               </div>
               <div class="peer">
-                <span class="d-ib lh-0 va-m fw-600 bdrs-10em pX-15 pY-15 bgc-purple-50 c-purple-500">~12%</span>
+                <span class="d-ib lh-0 va-m fw-600 bdrs-10em pX-15 pY-15 bgc-purple-50 c-purple-500">{{ $totalLeavesToday }}</span>
               </div>
             </div>
           </div>
@@ -63,7 +63,7 @@
                 <span id="sparklinedash4"></span>
               </div>
               <div class="peer">
-                <span class="d-ib lh-0 va-m fw-600 bdrs-10em pX-15 pY-15 bgc-blue-50 c-blue-500">33%</span>
+                <span class="d-ib lh-0 va-m fw-600 bdrs-10em pX-15 pY-15 bgc-blue-50 c-blue-500">{{ $totalHolidays }}</span>
               </div>
             </div>
           </div>
@@ -73,7 +73,7 @@
 <div class="mT-30 row">
 	<div class="col-md-6">
 		<h4>Today's Attendance</h4>
-		<a href="" class="btn btn-sm btn-primary mb-2">View All</a>
+		<a href="{{ route('admin.attendances.index') }}" class="btn btn-sm btn-primary mb-2">View All</a>
 		<table class="table table-bordered">
 			<thead>
 				<tr>
@@ -83,17 +83,19 @@
 				</tr>
 			</thead>
 			<tbody>
+        @foreach($attendancesToday as $attendance)
 				<tr>
-					<td>EMP-12</td>
-					<td>12 30 AM</td>
-					<td>still working</td>
+					<td>EMP-{{ $attendance->employee_id }}</td>
+					<td>{{ $attendance->started_from }}</td>
+					<td>{{ $attendance->ended_at ?? '---' }}</td>
 				</tr>
+        @endforeach
 			</tbody>
 		</table>
 	</div>
 	<div class="col-md-6">
 		<h4>Recent Leave Requests</h4>
-		<a href="" class="btn btn-sm btn-primary mb-2">View All</a>
+		<a href="{{ route('admin.leaves.index') }}" class="btn btn-sm btn-primary mb-2">View All</a>
 		<table class="table table-bordered">
 			<thead>
 				<tr>
@@ -104,14 +106,16 @@
 				</tr>
 			</thead>
 			<tbody>
+        @foreach($leavesToday as $leave)
 				<tr>
-					<td>EMP-12</td>
-					<td>2020-12-20</td>
-					<td>Sick Leave</td>
+					<td>EMP-{{ $leave->employee_id }}</td>
+					<td>{{ $leave->date }}</td>
+					<td>{{ $leave->reason }}</td>
 					<td>
-						<a href="" class="btn btn-sm btn-info">View</a>
+						<a href="{{ route('admin.leaves.show',$leave->id) }}" class="btn btn-sm btn-info">View</a>
 					</td>
 				</tr>
+        @endforeach
 			</tbody>
 		</table>
 	</div>
