@@ -25,18 +25,23 @@ class EmployeeService {
 				'password' => Hash::make($password),
 			]);
 		$user->roles()->sync($this->role->id);
+		if ($request->photo !== null) {
+			$user->addMedia($request->photo)->toMediaCollection('user_photo');
+		}
 		event(new NewEmployeeRegistrationEvent($user, $this->createPasswordResetToken($user)));
 		return $user;
 	}
 	public function updateUserAccount(Request $request, Employee $employee) {
-		// dd($employee);
 		$user = User::find($employee->user_id);
-		// dd($user);
 		$user->update([
 				'name'  => $request->name,
 				'email' => $request->email,
 			]);
 		$user->roles()->sync($this->role->id);
+		if ($request->photo !== null) {
+			$user->clearMediaCollection('employee_photo');
+			$user->addMedia($request->photo)->toMediaCollection('user_photo');
+		}
 		return $user;
 	}
 
