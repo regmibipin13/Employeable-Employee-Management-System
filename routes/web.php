@@ -7,6 +7,12 @@ Route::get('/employees/password/reset/{token}', 'Auth\ResetPasswordController@sh
 Route::post('/employees/password/reset', 'Auth\ResetPasswordController@resetEmployeePassword')->name('employees.resetPassword');
 Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'middleware' => ['auth']], function () {
 		Route::get('/', 'HomeController@index')->name('home');
+
+		// Profile
+
+		Route::get('/profile/{user}','HomeController@showProfile')->name('profile');
+		Route::post('/profile/{user}','HomeController@updateProfile')->name('update_profile');
+
 		// Permissions
 		Route::delete('permissions/destroy', 'PermissionsController@massDestroy')->name('permissions.massDestroy');
 		Route::resource('permissions', 'PermissionsController');
