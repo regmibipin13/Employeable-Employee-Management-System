@@ -50,7 +50,7 @@
                         {{ $employee->id ?? '' }}
                     </td>
                     <td>
-                        <img src="{{ $employee->getFirstMediaUrl('employee_photo') }}" alt="{{ $employee->name }}" width="80" height="80"/>
+                        <img src="{{ $employee->user->getFirstMediaUrl('user_photo') ?? 'https://civilcapitalmarket.com/frontend/web/assets/images/default-user.png' }}" alt="{{ $employee->name }}" width="80" height="80"/>
                     </td>
                     <td>
                         {{ $employee->name ?? '' }}

@@ -21,17 +21,17 @@
     @yield('styles')
 </head>
 <body class="app">
-    <!-- <div id="loader">
+    <div id="loader">
         <div class="spinner"></div>
-    </div> -->
-    <!-- <script>
+    </div>
+    <script>
         window.addEventListener('load', function load() {
             var loader = document.getElementById('loader');
             setTimeout(function() {
                 loader.classList.add('fadeOut');
             }, 200);
         });
-    </script> -->
+    </script>
     @include('partials.menu')
     <div class="page-container" id="app">
         <div class="header navbar">
@@ -57,18 +57,6 @@
 
                 </ul>
                 <ul class="nav-right">
-                    @if(count(config('panel.available_languages', [])) > 1)
-                        <li class="">
-                            <a class="nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-                                {{ strtoupper(app()->getLocale()) }}
-                            </a>
-                            <div class="dropdown-menu dropdown-menu-right">
-                                @foreach(config('panel.available_languages') as $langLocale => $langName)
-                                    <a class="dropdown-item" href="{{ url()->current() }}?change_language={{ $langLocale }}">{{ strtoupper($langLocale) }} ({{ $langName }})</a>
-                                @endforeach
-                            </div>
-                        </li>
-                    @endif
                     <li class="dropdown">
                       <a href="" class="dropdown-toggle no-after peers fxw-nw ai-c lh-1" data-toggle="dropdown">
                         <div class="peer mR-10">

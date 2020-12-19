@@ -33,6 +33,10 @@ class HomeController
 
     public function updateProfile(Request $request)
     {
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required',
+        ]);
         $user = auth()->user();
         $user->update([
             'name'  => $request->name,

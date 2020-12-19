@@ -3,14 +3,12 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use Spatie\MediaLibrary\HasMedia\HasMedia;
-use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
 use Illuminate\Notifications\Notifiable;
 use App\Traits\SalaryDue;
 
-class Employee extends Model implements HasMedia
+class Employee extends Model 
 {
-    use HasMediaTrait,Notifiable,SalaryDue;
+    use Notifiable,SalaryDue;
     protected $guarded = [];
 
     public function user()

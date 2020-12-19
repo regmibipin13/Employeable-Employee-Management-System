@@ -12,7 +12,7 @@
           <div class="panel panel-default">
             <div class="panel-body">
               <div class="profile__avatar">
-              <img src="{{ $employee->getFirstMediaUrl('employee_photo') }}" alt="{{ $employee->name }}">
+              <img src="{{ $employee->user->getFirstMediaUrl('user_photo') ?? 'https://civilcapitalmarket.com/frontend/web/assets/images/default-user.png' }}" alt="{{ $employee->name }}">
               </div>
               <div class="profile__header">
                 <h4>{{ $employee->name }}

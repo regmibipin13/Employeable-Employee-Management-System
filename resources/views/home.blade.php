@@ -1,5 +1,7 @@
 @extends('layouts.admin')
 @section('content')
+
+@can('dashboard_access')
 <div class="mT-30 row">
 	<div class='col-md-3'>
         <div class="layers bd bgc-white p-20">
@@ -29,7 +31,7 @@
                 <span id="sparklinedash2"></span>
               </div>
               <div class="peer">
-                <span class="d-ib lh-0 va-m fw-600 bdrs-10em pX-15 pY-15 bgc-red-50 c-red-500">{{ $totalAttendanceToday / $totalEmployees * 100 }}%</span>
+                <span class="d-ib lh-0 va-m fw-600 bdrs-10em pX-15 pY-15 bgc-red-50 c-red-500">{{ $totalAttendanceToday }}%</span>
               </div>
             </div>
           </div>
@@ -120,6 +122,16 @@
 		</table>
 	</div>
 </div>
+@else
+
+<div class="mT-30 row">
+  <div class="col-md-12">
+    <h5>Welcome to the Dashboard</h5>
+  </div>
+</div>
+
+@endcan
+
 @endsection
 @section('scripts')
 @parent

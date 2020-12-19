@@ -81,10 +81,9 @@
             <div class="col-md-6 form-group {{ $errors->has('salary_type') ? 'has-error' : '' }}">
                 <label for="salary_type">{{ trans('cruds.employee.fields.salary_type') }}*</label>
                 <select id="salary_type" name="salary_type" class="form-control" required>
-                    <option selected>Select a Salary Type</option>
                     <option value="daily">Daily</option>
                     <option value="weekly">Weekly</option>
-                    <option value="monthly">Monthly</option>
+                    <option value="monthly"selected>Monthly</option>
                     <option value="yearly">Yearly</option>
                    
                 </select>
@@ -120,10 +119,6 @@
                         {{ $errors->first('bio') }}
                     </em>
                 @endif
-            </div>
-            <div class="col-md-12 mb-2">
-                <label for="photo">Photo</label>
-                <input type="file" name="photo" class="form-control" id="photo" value="{{ old('photo') }}">
             </div>
             <div class="col-md-12">
                 <input class="btn btn-danger" type="submit" value="{{ trans('global.save') }}">

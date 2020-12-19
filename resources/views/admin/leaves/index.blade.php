@@ -8,7 +8,7 @@
         <div style="margin-bottom: 10px;" class="row">
             <div class="col-lg-12">
                 <a class="btn btn-success" href="{{ route("admin.leaves.create") }}">
-                    {{ trans('global.add') }} {{ trans('cruds.leave.title_singular') }}
+                   Apply for new Leave
                 </a>
             </div>
         </div>

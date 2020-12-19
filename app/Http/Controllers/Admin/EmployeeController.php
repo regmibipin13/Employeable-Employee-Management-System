@@ -50,10 +50,7 @@ class EmployeeController extends Controller {
 		$employeeService = new EmployeeService;
 		$user            = $employeeService->createUserAccount($request);
 		$request->merge(['user_id' => $user->id]);
-		$employee = Employee::create($request->except(['photo']));
-		if ($request->photo !== null) {
-			$employee->addMedia($request->photo)->toMediaCollection('employee_photo');
-		}
+		$employee = Employee::create($request->all());
 		return redirect()->to('/admin/employees');
 	}
 
@@ -96,13 +93,7 @@ class EmployeeController extends Controller {
 		$employeeService->updateUserAccount($request, $employee);
 
 		$request->merge(['user_id' => $employee->user_id]);
-		// dd($request->all());
-		$employee->update($request->except(['photo']));
-		if ($request->photo !== null) {
-			$employee->clearMediaCollection('employee_photo');
-			$employee->addMedia($request->photo)->toMediaCollection('employee_photo');
-		}
-
+		$employee->update($request->all());
 		return redirect()->to('/admin/employees');
 	}
 
@@ -115,7 +106,6 @@ class EmployeeController extends Controller {
 	public function destroy(Employee $employee) {
 		abort_if(Gate::denies('employee_delete'), Response::HTTP_FORBIDDEN, '403 FORBIDDEN');
 		User::find($employee->user_id)->delete();
-		$employee->clearMediaCollection();
 		$employee->delete();
 		return redirect()->back();
 	}

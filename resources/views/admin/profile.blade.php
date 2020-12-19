@@ -9,12 +9,8 @@
             <div class="e-profile">
               <div class="row">
                 <div class="col-12 col-sm-auto mb-3">
-                  <div class="mx-auto" style="width: 140px;">   
-                     @if(auth()->user()->hasRole('title','Employee'))
-                     <img src="{{ auth()->user()->employee->getFirstMediaUrl('employee_photo') }}" width="200" height="200">
-                     @else
+                  <div class="mx-auto" style="width: 140px;">    
                      <img src="{{ auth()->user()->getFirstMediaUrl('user_photo') }}" width="200" height="200">
-                     @endif
                     </div>
                   </div>
                 </div>

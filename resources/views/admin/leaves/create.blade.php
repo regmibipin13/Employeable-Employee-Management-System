@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 @section('content')
 <h6 class="c-grey-900">
-    {{ trans('global.create') }} {{ trans('cruds.leave.title_singular') }}
+    Apply For New Leave
 </h6>
 <div class="mT-30">
     <form action="{{ route("admin.leaves.store") }}" method="POST">

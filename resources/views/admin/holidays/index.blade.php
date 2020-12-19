@@ -28,7 +28,10 @@
 
 		<div class="calender-box row mb-5 d-flex justify-content-between" v-cloak>
 			<div class="col-md-2 single-box-holiday text-center pt-2 pb-2 mb-2 mr-1" v-for="(holiday,index) in holidays">
-				@{{ holiday.date }} &nbsp; <i class="fas fa-gift" style="color: green;" @click="showDetails(holiday.reason)"></i> &nbsp; <i class="fas fa-trash-alt" style="color:red; cursor: pointer;" @click="deleteHoliday(index)"></i>
+				@{{ holiday.date }} &nbsp; <i class="fas fa-gift" style="color: green;" @click="showDetails(holiday.reason)"></i> &nbsp;
+				@can('holidays_delete')
+				<i class="fas fa-trash-alt" style="color:red; cursor: pointer;" @click="deleteHoliday(index)"></i>
+				@endcan
 			</div>
 			<modal name="holiday" :height="'auto'">
 				<p class="p-5">@{{ selected == '' ? 'not mentioned' : selected }}</p>
