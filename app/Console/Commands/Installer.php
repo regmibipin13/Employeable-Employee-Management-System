@@ -13,7 +13,7 @@ class Installer extends Command
      *
      * @var string
      */
-    protected $signature = 'ems:install {dbname} {dbport} {username} {password?}';
+    protected $signature = 'ems:install';
 
     /**
      * The console command description.
