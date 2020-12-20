@@ -63,7 +63,7 @@
                         <leave-approve :leave="{{ $leave }}" inline-template>
                             <toggle-button 
                                 @change="onChangeEvent"
-                                :value="leave.is_approved ? true : false"
+                                :value="leave.is_approved"
                                 :labels="{checked: 'Approved', unchecked: 'Pending'}"
                             />
                         </leave-approve>
