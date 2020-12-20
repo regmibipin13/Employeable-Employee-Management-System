@@ -42,7 +42,7 @@ class Installer extends Command
         $this->info('Dont Forget to change the .env credentials and run composer install before doing this step');
         $this->runMigrateAndSeeds();
         $this->runNodes();
-        $this->success('Application installed successfully');
+        $this->info('Application installed successfully . Enjoy using Ems builed by dev.Bipin');
     }
 
 
