@@ -1,0 +1,93 @@
+<?php
+
+namespace App\Console\Commands;
+
+use Illuminate\Console\Command;
+use Symfony\Component\Process\Exception\ProcessFailedException;
+use Symfony\Component\Process\Process;
+
+class Installer extends Command
+{
+    /**
+     * The name and signature of the console command.
+     *
+     * @var string
+     */
+    protected $signature = 'ems:install {dbname} {dbport} {username} {password?}';
+
+    /**
+     * The console command description.
+     *
+     * @var string
+     */
+    protected $description = 'Installs the application';
+
+    /**
+     * Create a new command instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        parent::__construct();
+    }
+
+    /**
+     * Execute the console command.
+     *
+     * @return mixed
+     */
+    public function handle()
+    {
+        $this->runComposerUpdate();
+        $this->saveDatabaseConfigs();
+        $this->runMigrateAndSeeds();
+        $this->runNodes();
+    }
+
+    private function runComposerUpdate()
+    {
+        $process = new Process(['composer install']);
+        $process->run();
+    }
+
+    private function saveDatabaseConfigs()
+    {
+        $search = ['DB_DATABASE','DB_USERNAME','DB_PORT','DB_PASSWORD'];
+        $replace = [$this->argument('dbname'), $this->argument('username'),$this->argument('dbport'), $this->argument('password')];
+        $content = file_get_contents('.env');
+        $content = str_replace($search, $replace, $content);
+        file_put_contents('.env', $content);
+    }
+
+    private function runMigrateAndSeeds()
+    {
+        \Artisan::call('migrate');
+        \Artisan::call('db:seed');
+    }
+
+    private function runNodes()
+    {
+        $process = new Process(['npm install && npm run production']);
+        $process->run();
+
+        \Artisan::call('key:generate');
+        \Artisan::call('optimize:clear');
+    }
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
