@@ -12,6 +12,7 @@ class HomeController
 {
     public function index()
     {
+        // dd($user = \Auth::user()->load(['employee']));
     	$totalEmployees = Employee::count();
     	$attendancesToday = Attendance::where('date',\Carbon\Carbon::today()->toDateString())->get();
     	$leavesToday = Leave::where('date',\Carbon\Carbon::now()->toDateString())->get();

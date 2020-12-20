@@ -8,7 +8,8 @@ use App\Traits\SalaryDue;
 
 class Employee extends Model 
 {
-    use Notifiable,SalaryDue;
+    use Notifiable , SalaryDue;
+
     protected $guarded = [];
 
     public function user()

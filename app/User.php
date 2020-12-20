@@ -75,7 +75,7 @@ class User extends Authenticatable implements HasMedia
 
     public function employee()
     {
-        return $this->hasOne(Employee::class);
+        return $this->hasOne(Employee::class ,'user_id');
     }
 
     public function hasRole($column , $value) 

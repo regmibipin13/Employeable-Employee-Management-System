@@ -51,7 +51,7 @@ class EmployeeController extends Controller {
 		$user            = $employeeService->createUserAccount($request);
 		$request->merge(['user_id' => $user->id]);
 		$employee = Employee::create($request->all());
-		return redirect()->to('/admin/employees');
+		return redirect()->to('/admin/employees')->with('success','Employee Account has been created and employee account information has been sent to employee email');
 	}
 
 	/**
