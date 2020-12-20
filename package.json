@@ -1,5 +1,5 @@
 {
-    "name":"ems",
+    "name": "ems",
     "private": true,
     "scripts": {
         "dev": "npm run development",
