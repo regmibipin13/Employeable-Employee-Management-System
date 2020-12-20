@@ -39,25 +39,17 @@ class Installer extends Command
      */
     public function handle()
     {
+        $this->info('Dont Forget to change the .env credentials before doing this step');
         $this->runComposerUpdate();
-        $this->saveDatabaseConfigs();
         $this->runMigrateAndSeeds();
         $this->runNodes();
+        $this->success('Application installed successfully');
     }
 
     private function runComposerUpdate()
     {
         $process = new Process(['composer install']);
         $process->run();
-    }
-
-    private function saveDatabaseConfigs()
-    {
-        $search = ['DB_DATABASE','DB_USERNAME','DB_PORT','DB_PASSWORD'];
-        $replace = [$this->argument('dbname'), $this->argument('username'),$this->argument('dbport'), $this->argument('password')];
-        $content = file_get_contents('.env');
-        $content = str_replace($search, $replace, $content);
-        file_put_contents('.env', $content);
     }
 
     private function runMigrateAndSeeds()
