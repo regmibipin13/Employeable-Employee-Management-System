@@ -39,18 +39,12 @@ class Installer extends Command
      */
     public function handle()
     {
-        $this->info('Dont Forget to change the .env credentials before doing this step');
-        $this->runComposerUpdate();
+        $this->info('Dont Forget to change the .env credentials and run composer install before doing this step');
         $this->runMigrateAndSeeds();
         $this->runNodes();
         $this->success('Application installed successfully');
     }
 
-    private function runComposerUpdate()
-    {
-        $process = new Process(['composer install']);
-        $process->run();
-    }
 
     private function runMigrateAndSeeds()
     {
